@@ -19,12 +19,27 @@ public class Rezerwacja {
     {
         return klient;
     }
-    public Trasa getTrasa() {
+    public Trasa getTarsa() {
         return trasa;
     }
 
     public LocalDate getDataWylotu()
     {
         return dataWylotu;
+    }
+
+    public Samolot getSamolot()
+    {
+        return samolot;
+    }
+
+    @Override
+    public String toString() {
+        return "Rezerwacja{" +
+                "klient=" + klient +
+                ", trasa=" + trasa +
+                ", dataWylotu=" + dataWylotu +
+                ", samolot=" + samolot +
+                '}';
     }
 }

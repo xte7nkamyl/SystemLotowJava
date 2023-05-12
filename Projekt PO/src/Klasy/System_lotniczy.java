@@ -10,11 +10,11 @@ public class System_lotniczy {
     private ArrayList<Rezerwacja> rezerwacje = new ArrayList<>;
 
     public void dodajKlient(Klient k) {
-        klienci.add();
+        klienci.add(k);
     }
 
     public void usunKlient(Klient k) {
-        klienci.remove();
+        klienci.remove(k);
     }
 
     public ArrayList<Klient> getKlienci() {
@@ -22,11 +22,11 @@ public class System_lotniczy {
     }
 
     public void dodajTrasa(Trasa t) {
-        trasy.add();
+        trasy.add(t);
     }
 
     public void usunTrasa(Trasa t) {
-        trasy.remove();
+        trasy.remove(t);
     }
 
     public ArrayList<Trasa> getTrasy() {
@@ -34,11 +34,11 @@ public class System_lotniczy {
     }
 
     public void dodajLotnisko(Lotnisko l) {
-        lotniska.add();
+        lotniska.add(l);
     }
 
     public void usunLotnisko(Lotnisko l) {
-        lotniska.remove();
+        lotniska.remove(l);
     }
 
     public ArrayList<Lotnisko> getLotniska() {
@@ -46,11 +46,11 @@ public class System_lotniczy {
     }
 
     public void dodajSamolot(Samolot s) {
-        samoloty.add();
+        samoloty.add(s);
     }
 
-    public void usunSamolot(Lotnisko l) {
-        samoloty.remove();
+    public void usunSamolot(Samolot s) {
+        samoloty.remove(s);
     }
 
     public ArrayList<Samolot> getSamoloty() {
@@ -58,11 +58,11 @@ public class System_lotniczy {
     }
 
     public void dodajRezerwacje(Rezerwacja r) {
-        rezerwacje.add();
+        rezerwacje.add(r);
     }
 
     public void usunRezerwacje(Rezerwacja r) {
-        rezerwacje.remove();
+        rezerwacje.remove(r);
     }
 
     public ArrayList<Rezerwacja> getRezerwacje() {

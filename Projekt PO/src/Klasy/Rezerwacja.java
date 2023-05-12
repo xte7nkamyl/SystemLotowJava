@@ -23,5 +23,8 @@ public class Rezerwacja {
         return trasa;
     }
 
-    public LocalDate
+    public LocalDate getDataWylotu()
+    {
+        return dataWylotu;
+    }
 }

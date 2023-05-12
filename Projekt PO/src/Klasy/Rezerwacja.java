@@ -23,5 +23,8 @@ public class Rezerwacja {
         return tarsa;
     }
 
-    public LocalDate
+    public LocalDate getDataWylotu()
+    {
+        return dataWylotu;
+    }
 }

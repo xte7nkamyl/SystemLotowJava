@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Rezerwacja {
     private Klient klient;
-    private Trasa tarsa;
+    private Trasa trasa;
     private LocalDate dataWylotu;
     private Samolot samolot;
 
@@ -19,8 +19,8 @@ public class Rezerwacja {
     {
         return klient;
     }
-    public Trasa getTarsa() {
-        return tarsa;
+    public Trasa getTrasa() {
+        return trasa;
     }
 
     public LocalDate

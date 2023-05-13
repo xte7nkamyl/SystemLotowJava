@@ -1,13 +1,19 @@
 package Klasy;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 public class System_lotniczy {
 
-    private ArrayList<Klient> klienci = new ArrayList<>;
-    private ArrayList<Trasa> trasy = new ArrayList<>;
-    private ArrayList<Lotnisko> lotniska = new ArrayList<>;
-    private ArrayList<Samolot> samoloty = new ArrayList<>;
-    private ArrayList<Rezerwacja> rezerwacje = new ArrayList<>;
+    private List<Klient> klienci = new ArrayList();
+    private List<Trasa> trasy = new ArrayList();
+    private List<Lotnisko> lotniska = new ArrayList();
+    private List<Samolot> samoloty = new ArrayList();
+    private List<Rezerwacja> rezerwacje = new ArrayList();
 
     public void dodajKlient(Klient k) {
         klienci.add(k);
@@ -17,7 +23,7 @@ public class System_lotniczy {
         klienci.remove(k);
     }
 
-    public ArrayList<Klient> getKlienci() {
+    public List<Klient> getKlienci() {
         return klienci;
     }
 
@@ -29,7 +35,7 @@ public class System_lotniczy {
         trasy.remove(t);
     }
 
-    public ArrayList<Trasa> getTrasy() {
+    public List<Trasa> getTrasy() {
         return trasy;
     }
 
@@ -41,7 +47,7 @@ public class System_lotniczy {
         lotniska.remove(l);
     }
 
-    public ArrayList<Lotnisko> getLotniska() {
+    public List<Lotnisko> getLotniska() {
         return lotniska;
     }
 
@@ -53,7 +59,7 @@ public class System_lotniczy {
         samoloty.remove(s);
     }
 
-    public ArrayList<Samolot> getSamoloty() {
+    public List<Samolot> getSamoloty() {
         return samoloty;
     }
 
@@ -65,8 +71,30 @@ public class System_lotniczy {
         rezerwacje.remove(r);
     }
 
-    public ArrayList<Rezerwacja> getRezerwacje() {
+    public List<Rezerwacja> getRezerwacje() {
         return rezerwacje;
+    }
+
+    public GeneratorLotow(ArrayList<Trasa> trasy, ArrayList<Samolot> samoloty)
+    {
+        this.trasy = trasy;
+    }
+    public void generator(LocalDate dataOdlotu, LocalDate DataDolotu)
+    {
+List loty = new ArrayList<>();
+        Random random = new Random();
+for (Trasa trasa : trasy)
+{
+    for (Samolot samolot : samoloty)
+    {
+        if (samolot.getZasieg() >= trasa.getOdleglosc())
+        {
+            LocalDateTime czasWylotu = LocalDateTime.of(dataOdlotu, LocalTime.of(random.nextInt(24), random.nextInt(60) ));
+            LocalDateTime czasDolotu = czasWylotu.plusMinutes(trasa.getCzasLotu());
+        }
+    }
+}
+
     }
 
 }

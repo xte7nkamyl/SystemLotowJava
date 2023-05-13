@@ -4,20 +4,20 @@ public class Trasa {
     private int odleglosc;
     private Lotnisko poczatek;
     private Lotnisko koniec;
-    private float czasLotu;
+    private int czasLotu;
 
-    public Trasa(int odleglosc, Lotnisko poczatek, Lotnisko koniec, float czasLotu) {
+    public Trasa(int odleglosc, Lotnisko poczatek, Lotnisko koniec, int czasLotu) {
         this.odleglosc = odleglosc;
         this.poczatek = poczatek;
         this.koniec = koniec;
         this.czasLotu = czasLotu;
     }
 
-    public float getCzasLotu() {
+    public int getCzasLotu() {
         return czasLotu;
     }
 
-    public float setCzasLotu(float czasLotu) {
+    public int setCzasLotu(int czasLotu) {
         if (czasLotu > 0)
             this.czasLotu = czasLotu;
         else

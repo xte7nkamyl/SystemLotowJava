@@ -1,11 +1,9 @@
 package Klasy;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 
 public class System_lotniczy {
 
@@ -75,26 +73,36 @@ public class System_lotniczy {
         return rezerwacje;
     }
 
-    public GeneratorLotow(ArrayList<Trasa> trasy, ArrayList<Samolot> samoloty)
-    {
-        this.trasy = trasy;
-    }
-    public void generator(LocalDate dataOdlotu, LocalDate DataDolotu)
-    {
-List loty = new ArrayList<>();
+    public void generatorLotow(Klient klient, LocalDate dataOdlotu, LocalDate DataDolotu) {
         Random random = new Random();
-for (Trasa trasa : trasy)
-{
-    for (Samolot samolot : samoloty)
-    {
-        if (samolot.getZasieg() >= trasa.getOdleglosc())
-        {
-            LocalDateTime czasWylotu = LocalDateTime.of(dataOdlotu, LocalTime.of(random.nextInt(24), random.nextInt(60) ));
-            LocalDateTime czasDolotu = czasWylotu.plusMinutes(trasa.getCzasLotu());
+        Scanner scanner = new Scanner(System.in);
+        for (Trasa trasa : trasy) {
+            for (Samolot samolot : samoloty) {
+                if (samolot.getZasieg() >= trasa.getOdleglosc()) {
+                    LocalDateTime czasWylotu = LocalDateTime.of(dataOdlotu, LocalTime.of(random.nextInt(24), random.nextInt(60)));
+                    LocalDateTime czasDolotu = czasWylotu.plusMinutes(trasa.getCzasLotu());
+                    if (czasDolotu.isBefore(LocalDateTime.of(DataDolotu.plusDays(1), LocalTime.of(0, 0)))) {
+                        Rezerwacja rezerwacja = new Rezerwacja(klient, trasa, czasWylotu, samolot);
+                        System.out.println(rezerwacja);
+                        while (true) {
+                            System.out.println("Wybierz opcję:");
+                            System.out.println("1. Dodaj rezerwacje");
+                            System.out.println("2. Anuluj");
+                            int x = random.nextInt();
+                            switch (x)
+                            {
+                                case 1:
+                                    rezerwacje.add(rezerwacja);
+                                    break;
+                                case 2:
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+
         }
-    }
-}
 
     }
-
 }

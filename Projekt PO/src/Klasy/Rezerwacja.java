@@ -1,14 +1,15 @@
 package Klasy;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Rezerwacja {
     private Klient klient;
     private Trasa trasa;
-    private LocalDate dataWylotu;
+    private LocalDateTime dataWylotu;
     private Samolot samolot;
 
-    public Rezerwacja(Klient klient, Trasa trasa, LocalDate dataWylotu, Samolot samolot)
+    public Rezerwacja(Klient klient, Trasa trasa, LocalDateTime dataWylotu, Samolot samolot)
     {
         this.dataWylotu = dataWylotu;
         this.klient = klient;
@@ -23,7 +24,7 @@ public class Rezerwacja {
         return trasa;
     }
 
-    public LocalDate getDataWylotu()
+    public LocalDateTime getDataWylotu()
     {
         return dataWylotu;
     }

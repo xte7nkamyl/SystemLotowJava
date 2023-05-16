@@ -1,5 +1,7 @@
 package Klasy;
 
+import java.io.Serializable;
+
 public class Klient {
 
     protected String imie;
@@ -27,6 +29,6 @@ public class Klient {
 
     @Override
     public String toString() {
-        return "imie - " + imie.toString() + "\n Nazwisko - " + nazwisko.toString() + "\n PESEL - " + PESEL;
+        return "imie - " + imie.toString() + " Nazwisko - " + nazwisko.toString() + " PESEL - " + PESEL+"\n";
     }
 }

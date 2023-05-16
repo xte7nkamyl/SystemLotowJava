@@ -1,6 +1,8 @@
 package Klasy;
 
-public class Samolot {
+import java.io.Serializable;
+
+public class Samolot implements Serializable {
     private int iloscMiejsc;
     private int zasieg;
 
@@ -38,6 +40,6 @@ public class Samolot {
 
     @Override
     public String toString() {
-        return "Ilość miejsc - " + iloscMiejsc + "\n Zasięg - " + zasieg;
+        return "Ilość miejsc - " + iloscMiejsc + " Zasięg - " + zasieg + "\n";
     }
 }

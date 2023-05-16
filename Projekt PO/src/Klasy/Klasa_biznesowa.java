@@ -1,8 +1,14 @@
 package Klasy;
 
-public class Klasa_biznesowa extends Samolot {
+import java.io.Serializable;
 
-    public Klasa_biznesowa(int iloscMiejsc, int zasieg) {
-        super(iloscMiejsc, zasieg);
+public class Klasa_biznesowa extends Samolot implements Serializable {
+    public Klasa_biznesowa() {
+        super(300, 5000);
+    }
+
+    @Override
+    public String toString() {
+        return "Klasa_Biznesowa " +  super.toString();
     }
 }

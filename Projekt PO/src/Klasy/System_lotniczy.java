@@ -5,14 +5,13 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
 
-public class System_lotniczy {
+public class System_lotniczy  {
 
     private List<Klient> klienci = new ArrayList();
     private List<Trasa> trasy = new ArrayList();
     private List<Lotnisko> lotniska = new ArrayList();
     private List<Samolot> samoloty = new ArrayList();
     private List<Rezerwacja> rezerwacje = new ArrayList();
-
     public void dodajKlient(Klient k) {
         klienci.add(k);
     }
@@ -23,6 +22,10 @@ public class System_lotniczy {
 
     public List<Klient> getKlienci() {
         return klienci;
+    }
+
+    public void setKlienci(List<Klient> klienci) {
+        this.klienci = klienci;
     }
 
     public void dodajTrasa(Trasa t) {
@@ -37,6 +40,10 @@ public class System_lotniczy {
         return trasy;
     }
 
+    public void setTrasy(List<Trasa> trasy) {
+        this.trasy = trasy;
+    }
+
     public void dodajLotnisko(Lotnisko l) {
         lotniska.add(l);
     }
@@ -47,6 +54,10 @@ public class System_lotniczy {
 
     public List<Lotnisko> getLotniska() {
         return lotniska;
+    }
+
+    public void setLotniska(List<Lotnisko> lotniska) {
+        this.lotniska = lotniska;
     }
 
     public void dodajSamolot(Samolot s) {
@@ -61,6 +72,10 @@ public class System_lotniczy {
         return samoloty;
     }
 
+    public void setSamoloty(List<Samolot> samoloty) {
+        this.samoloty = samoloty;
+    }
+
     public void dodajRezerwacje(Rezerwacja r) {
         rezerwacje.add(r);
     }
@@ -71,6 +86,10 @@ public class System_lotniczy {
 
     public List<Rezerwacja> getRezerwacje() {
         return rezerwacje;
+    }
+
+    public void setRezerwacje(List<Rezerwacja> rezerwacje) {
+        this.rezerwacje = rezerwacje;
     }
 
     public void generatorLotow(Klient klient, LocalDate dataOdlotu, LocalDate DataDolotu) {

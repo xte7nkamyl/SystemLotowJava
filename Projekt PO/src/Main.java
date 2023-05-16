@@ -1,27 +1,23 @@
+import java.util.List;
 import java.util.Scanner;
 import Klasy.*;
+
 
 public class Main {
     public static void main(String[] args)
     {
         System_lotniczy systemlotniczy = new System_lotniczy();
         ZapisOdczytSystemu zapisOdczyt= new ZapisOdczytSystemu();
-
-
-
-        zapisOdczyt.odczytSystemu("SystemLot.txt");
+        ZapisOdczytSystemu.odczytaj(systemlotniczy, "SystemLotow.txt");
         Scanner scan = new Scanner(System.in);
-        boolean pom = true;// zeby zakonczyc petle glowne
-        boolean pom2 = true;// zeby zakonczyc petle srodkowe
-        boolean pom3 = true;// zeby zakonczyc petle srodkowe2
-String imie,nazwisko;
-int pesel;
+        String imie,nazwisko;
+        int pesel;
+        int x;
 
 
 
-        while (pom)
+        while (true)
         {//petla glowna
-            pom2 = true;
             System.out.println("Menu:");
             System.out.println("1.Zarzadzanie samolotami ");
             System.out.println("2.Zarzadzanie klientami ");
@@ -29,15 +25,15 @@ int pesel;
             System.out.println("4.Zarzadzanie lotniskami ");
             System.out.println("5.Rezerwacja biletów");
             System.out.println("0.Wyjdz");
-            int x = scan.nextInt();
+            x = scan.nextInt();
 
             switch (x)
             {//glowny switch
                 case 1:
 
-                    while (pom2)
+                    while (true)
                     {
-                        pom3=true;// zeby odswiezyc wartosc pom3 jesli wczesniej zmieni sie na false
+
                         System.out.println("Zarzadzanie samolotami");
                         System.out.println("1.Dodaj samolot");
                         System.out.println("2.Usun samolot");
@@ -47,7 +43,7 @@ int pesel;
                         switch (x)//switch 2 rzedu
                         {
                             case 1:
-                                while(pom3)
+                                while(true)
                                 {
                                     System.out.println("Dodawanie samolotu");
                                     System.out.println("Wybierz samolot:");
@@ -60,27 +56,33 @@ int pesel;
                                     {
                                         case 1:
 
-                                            System.out.println("Dodano samolotu klasy biznesowej");
 
 
-
+                                            systemlotniczy.dodajSamolot(new Klasa_biznesowa());
+                                            System.out.println("Dodano samolot klasy biznesowej");
                                             break;
                                         case 2:
-                                            System.out.println("Dodawanie samolotu klasy ekonomicznej");
+                                            systemlotniczy.dodajSamolot(new Klasa_ekonomiczna());
+                                            System.out.println("Dodano samolot klasy ekonomicznej");
                                             break;
                                         case 3:
-                                            System.out.println("Dodawanie samolotu klasy ekonomicznej");
+                                            systemlotniczy.dodajSamolot(new Klasa_pierwsza());
+                                            System.out.println("Dodano samolot klasy pierwszej");
                                             break;
                                         case 0:
-                                            pom3= false;
+
                                             break;
                                         default:
                                             System.out.println("Podano zla wartosc!");
                                             break;
 
                                     }
-                                }
+                                    if(x==0){
+                                        break;
 
+                                    }
+                                }
+                                x=99;
 
                                 break;
                             case 2:
@@ -89,23 +91,27 @@ int pesel;
                                 break;
                             case 3:
                                 System.out.println("Samoloty:");
+                                System.out.println(systemlotniczy.getSamoloty());
                                 ///////
                                 break;
                             case 0:
-                                pom2=false;
                                 break;
                             default:
                                 System.out.println("Podano zla wartosc!");
                                 break;
 
+                        }
+                        if(x==0){
+                            break;
 
 
                         }
 
                     }
+                    x=99;
                     break;
                 case 2:
-                    while (pom2)
+                    while (true)
                     {
                         System.out.println("Zarzadzanie klientami");
                         System.out.println("1.Dodaj klienta");
@@ -137,20 +143,21 @@ int pesel;
                                 ///////
                                 break;
                             case 0:
-                                pom2=false;
                                 break;
                             default:
                                 System.out.println("Podano zla wartosc!");
                                 break;
 
-
-
+                        }
+                        if(x==0){
+                            break;
                         }
 
                     }
+                    x=99;
                     break;
                 case 3:
-                    while (pom2)
+                    while (true)
                     {
 
                         System.out.println("Zarzadzanie trasami");
@@ -174,20 +181,20 @@ int pesel;
                                 ///////
                                 break;
                             case 0:
-                                pom2=false;
                                 break;
                             default:
                                 System.out.println("Podano zla wartosc!");
                                 break;
-
-
-
+                        }
+                        if(x==0){
+                            break;
                         }
 
                     }
+                    x=99;
                     break;
                 case 4:
-                    while (pom2)
+                    while (true)
                     {
 
                         System.out.println("Zarzadzanie lotniskami");
@@ -211,31 +218,33 @@ int pesel;
                                 ///////
                                 break;
                             case 0:
-                                pom2=false;
                                 break;
                             default:
                                 System.out.println("Podano zla wartosc!");
                                 break;
 
-
-
                         }
-
+                        if(x==0){
+                            break;
+                        }
                     }
+                    x=99;
                     break;
                 case 5:
                     System.out.println("Rezerwacja biletow");
                     break;
                 case 0:
-                    pom = false;
                     break;
                 default:
                     System.out.println("Podano zla wartosc!");
                     break;
 
             }
+            if(x==0){
+                break;
+            }
         }
-        zapisOdczyt.zapiszStanSystemu(systemlotniczy,"SystemLot.txt");
+        ZapisOdczytSystemu.zapisz(systemlotniczy, "SystemLotow.txt");
     }
 }
 

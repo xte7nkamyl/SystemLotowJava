@@ -1,8 +1,9 @@
 package Klasy;
 
 
+import java.io.Serializable;
 
-public class Klient {
+public class Klient implements Serializable {
 
     protected String imie;
     protected String nazwisko;

@@ -17,7 +17,7 @@ public class Main {
 String imie,nazwisko;
 int pesel;
 
-
+ff
 
         while (pom)
         {//petla glowna

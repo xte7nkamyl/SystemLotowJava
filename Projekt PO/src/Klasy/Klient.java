@@ -1,6 +1,6 @@
 package Klasy;
 
-import java.io.Serializable;
+
 
 public class Klient {
 

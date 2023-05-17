@@ -1,6 +1,8 @@
 package Klasy;
 
-public class Lotnisko {
+import java.io.Serializable;
+
+public class Lotnisko implements Serializable {
     private String nazwa;
     private String miasto;
 
@@ -19,7 +21,7 @@ public class Lotnisko {
 
     @Override
     public String toString(){
-        return "Nazwa - " + nazwa + "\n Miasto - " + miasto;
+        return "Nazwa - " + nazwa + " Miasto - " + miasto+"\n";
     }
 
 }

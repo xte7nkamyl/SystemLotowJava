@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import Klasy.*;
@@ -10,7 +11,7 @@ public class Main {
         ZapisOdczytSystemu zapisOdczyt= new ZapisOdczytSystemu();
         ZapisOdczytSystemu.odczytaj(systemlotniczy, "SystemLotow.txt");
         Scanner scan = new Scanner(System.in);
-        String imie,nazwisko;
+        String imie,nazwisko,nazwa,miasto;
         int pesel;
         int x;
 
@@ -206,15 +207,29 @@ public class Main {
                         switch (x)//switch 2 rzedu
                         {
                             case 1:
-                                System.out.println("Dodawanie lotniska");
+                                System.out.println("Podaj nazwe lotniska: ");
+                                nazwa = scan.next();
+                                System.out.println("Podaj nazwe miasta: ");
+                                miasto = scan.next();
+                                systemlotniczy.dodajLotnisko(new Lotnisko(nazwa,miasto));
+                                System.out.println("Dodano Lotnisko: " + nazwa + " " + miasto);
                                 /////////////////////////
                                 break;
                             case 2:
                                 System.out.println("Usuwanie lotniska");
-                                ///////////
+                                System.out.println("Podaj nazwe lotniska do usuniecia: ");
+                                nazwa=scan.next();
+                                Iterator<Lotnisko> itr = systemlotniczy.getLotniska().listIterator();
+                                while (itr.hasNext())
+                                {
+                                    Lotnisko lotnisko = itr.next();
+                                    if (lotnisko.getNazwa().equals(nazwa))
+                                        systemlotniczy.usunLotnisko(lotnisko);
+                                }
                                 break;
                             case 3:
                                 System.out.println("Lotniska:");
+                                System.out.println(systemlotniczy.getLotniska());
                                 ///////
                                 break;
                             case 0:

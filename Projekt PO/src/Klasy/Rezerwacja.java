@@ -37,10 +37,10 @@ public class Rezerwacja {
     @Override
     public String toString() {
         return "Rezerwacja{" +
-                "klient=" + klient +
-                ", trasa=" + trasa +
-                ", dataWylotu=" + dataWylotu +
-                ", samolot=" + samolot +
+                "klient = " + klient +
+                ", trasa = " + trasa +
+                ", data wylotu = " + dataWylotu +
+                ", samolot = " + samolot +
                 '}';
     }
 }

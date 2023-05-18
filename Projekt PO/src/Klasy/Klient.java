@@ -30,6 +30,6 @@ public class Klient implements Serializable {
 
     @Override
     public String toString() {
-        return "imie - " + imie.toString() + " Nazwisko - " + nazwisko.toString() + " PESEL - " + PESEL+"\n";
+        return "Imię - " + imie.toString() + " Nazwisko - " + nazwisko.toString() + " PESEL - " + PESEL+"\n";
     }
 }

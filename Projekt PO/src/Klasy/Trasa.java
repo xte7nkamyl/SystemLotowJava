@@ -1,6 +1,8 @@
 package Klasy;
 
-public class Trasa {
+import java.io.Serializable;
+
+public class Trasa implements Serializable {
     private int odleglosc;
     private Lotnisko poczatek;
     private Lotnisko koniec;
@@ -42,6 +44,6 @@ public class Trasa {
 
     @Override
     public String toString() {
-        return "Odległość - " + odleglosc + "\n Miejsce początkowe - " + poczatek + "\n Miejsce końcowe - " + koniec + "\n Czas lotu - " + czasLotu;
+        return "Odległość - " + odleglosc + " Miejsce początkowe - " + poczatek + " Miejsce końcowe - " + koniec + " Czas lotu - " + czasLotu + "\n";
     }
 }

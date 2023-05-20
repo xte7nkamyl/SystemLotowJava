@@ -1,7 +1,7 @@
 import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
 import Klasy.*;
+
 
 
 public class Main {
@@ -11,22 +11,17 @@ public class Main {
         ZapisOdczytSystemu zapisOdczyt= new ZapisOdczytSystemu();
         ZapisOdczytSystemu.odczytaj(systemlotniczy, "SystemLotow.txt");
         Scanner scan = new Scanner(System.in);
-
-        String imie, nazwisko, nazwa, miasto;
-        int pesel;
         int x;
-
-
 
         while (true)
         {//petla glowna
             System.out.println("Menu:");
-            System.out.println("1. Zarządzanie samolotami ");
-            System.out.println("2. Zarządzanie klientami ");
-            System.out.println("3. Zarządzanie trasami ");
-            System.out.println("4. Zarządzanie lotniskami ");
-            System.out.println("5. Rezerwacja biletów");
-            System.out.println("0. Wyjdź");
+            System.out.println("1.Zarzadzanie samolotami ");
+            System.out.println("2.Zarzadzanie klientami ");
+            System.out.println("3.Zarzadzanie trasami ");
+            System.out.println("4.Zarzadzanie lotniskami ");
+            System.out.println("5.Rezerwacja biletów");
+            System.out.println("0.Wyjdz");
             x = scan.nextInt();
 
             switch (x)
@@ -36,30 +31,26 @@ public class Main {
                     while (true)
                     {
 
-                        System.out.println("Zarządzanie samolotami");
-                        System.out.println("1. Dodaj samolot");
-                        System.out.println("2. Usuń samolot");
-                        System.out.println("3. Wyświetl samoloty");
-                        System.out.println("0. Cofnij");
+                        System.out.println("Zarzadzanie samolotami");
+                        System.out.println("1.Dodaj samolot");
+                        System.out.println("2.Usun samolot");
+                        System.out.println("3.Wyswietl samoloty");
+                        System.out.println("0.cofnij");
                         x = scan.nextInt();//zmienna
                         switch (x)//switch 2 rzedu
                         {
                             case 1:
                                 while(true)
                                 {
-                                    System.out.println("Dodawanie samolotu");
-                                    System.out.println("Wybierz samolot: ");
-                                    System.out.println("1. Klasa biznesowa");
-                                    System.out.println("2. Klasa ekonomiczna");
-                                    System.out.println("3. Klasa pierwsza");
-                                    System.out.println("0. Cofnij");
+                                    System.out.println("Wybierz samolot:");
+                                    System.out.println("1.Klasa biznesowa");
+                                    System.out.println("2.Klasa ekonomiczna");
+                                    System.out.println("3.Klasa pierwsza");
+                                    System.out.println("0.cofnij");
                                     x=scan.nextInt();
                                     switch(x)
                                     {
                                         case 1:
-
-
-
                                             systemlotniczy.dodajSamolot(new Klasa_biznesowa());
                                             System.out.println("Dodano samolot klasy biznesowej");
                                             break;
@@ -72,16 +63,13 @@ public class Main {
                                             System.out.println("Dodano samolot klasy pierwszej");
                                             break;
                                         case 0:
-
                                             break;
                                         default:
-                                            System.out.println("Podano złą wartość!");
+                                            System.out.println("Podano zla wartosc!");
                                             break;
-
                                     }
                                     if(x==0){
                                         break;
-
                                     }
                                 }
                                 x=99;
@@ -92,20 +80,18 @@ public class Main {
                                 ///////////
                                 break;
                             case 3:
-                                System.out.println("Samoloty: ");
+                                System.out.println("Samoloty:");
                                 System.out.println(systemlotniczy.getSamoloty());
                                 ///////
                                 break;
                             case 0:
                                 break;
                             default:
-                                System.out.println("Podano złą wartość!");
+                                System.out.println("Podano zla wartosc!");
                                 break;
-
                         }
                         if(x==0){
                             break;
-
 
                         }
 
@@ -115,12 +101,14 @@ public class Main {
                 case 2:
                     while (true)
                     {
-                        System.out.println("Zarządzanie klientami");
-                        System.out.println("1. Dodaj klienta");
-                        System.out.println("2. Usuń klienta");
-                        System.out.println("3. Wyświetl liste klientów");
-                        System.out.println("0. Cofnij");
+                        System.out.println("Zarzadzanie klientami");
+                        System.out.println("1.Dodaj klienta");
+                        System.out.println("2.Usun klienta");
+                        System.out.println("3.Wyswietl liste klientow");
+                        System.out.println("0.cofnij");
                         x = scan.nextInt();//zmienna
+                        String imie,nazwisko;
+                        int pesel;
                         switch (x)//switch 2 rzedu
                         {
                             case 1:
@@ -128,11 +116,11 @@ public class Main {
                                 imie = scan.next();
                                 System.out.print("Podaj nazwisko: ");
                                 nazwisko = scan.next();
-                                System.out.println("Podaj numer PESEL");
+                                System.out.println("Podaj pesel");
                                 pesel = scan.nextInt();
                                 systemlotniczy.dodajKlient(new Klient(imie,nazwisko,pesel));
-                                System.out.println("Dodano klienta: " + imie + " " + nazwisko + " " + pesel);
-                                System.out.println("Dodawanie klientów");
+                                System.out.println("Dodano Klienta: " + imie + " " + nazwisko + " " + pesel);
+                                System.out.println("Dodawanie klientow");
                                 /////////////////////////
                                 break;
                             case 2:
@@ -140,21 +128,19 @@ public class Main {
                                 ///////////
                                 break;
                             case 3:
-                                System.out.println("Klienci: ");
+                                System.out.println("Klienci:");
                                 System.out.println(systemlotniczy.getKlienci());
                                 ///////
                                 break;
                             case 0:
                                 break;
                             default:
-                                System.out.println("Podano złą wartość!");
+                                System.out.println("Podano zla wartosc!");
                                 break;
-
                         }
                         if(x==0){
                             break;
                         }
-
                     }
                     x=99;
                     break;
@@ -162,16 +148,48 @@ public class Main {
                     while (true)
                     {
 
-                        System.out.println("Zarządzanie trasami");
-                        System.out.println("1. Dodaj trasę");
-                        System.out.println("2. Usuń trasę");
-                        System.out.println("3. Wyświetl trasy");
-                        System.out.println("0. Cofnij");
+                        System.out.println("Zarzadzanie trasami");
+                        System.out.println("1.Dodaj trase");
+                        System.out.println("2.Usun trase");
+                        System.out.println("3.Wyswietl trasy");
+                        System.out.println("0.cofnij");
                         x = scan.nextInt();//zmienna
+                        String poczatek,koniec,miasto;
+                        int odleglosc,czaslotu;
+                        Lotnisko p = null,k = null;
                         switch (x)//switch 2 rzedu
                         {
                             case 1:
+                                System.out.println("Podaj odleglosc trasy w [km]: ");
+                                odleglosc = scan.nextInt();
+                                System.out.println("Podaj nazwe lotniska poczatkowego: ");
+                                poczatek = scan.next();
+                                System.out.println("Podaj nazwe miasta poczatkowego: ");
+                                miasto = scan.next();
+                                Iterator<Lotnisko> itr = systemlotniczy.getLotniska().listIterator();
+                                while(itr.hasNext())
+                                {
+                                    Lotnisko l1 = itr.next();
+                                    if(l1.getNazwa().equals(poczatek) && l1.getMiasto().equals(miasto))
+                                        p = new Lotnisko(poczatek,miasto);
+                                    break;
+                                }
+                                System.out.println("Podaj nazwe lotniska koncowego: ");
+                                koniec = scan.next();
+                                System.out.println("Podaj nazwe miasta poczatkowego: ");
+                                miasto = scan.next();
+                                while (itr.hasNext())
+                                {
+                                    Lotnisko l2 = itr.next();
+                                    if(l2.getNazwa().equals(koniec) && l2.getMiasto().equals(miasto))
+                                        k = new Lotnisko(koniec,miasto);
+                                }
+                                System.out.println("Podaj czas lotu: ");
+                                czaslotu=scan.nextInt();
+                                systemlotniczy.dodajTrasa(new Trasa(odleglosc,p,k,czaslotu));
                                 System.out.println("Dodawanie trasy");
+                                p = null;
+                                k = null;
                                 /////////////////////////
                                 break;
                             case 2:
@@ -179,19 +197,19 @@ public class Main {
                                 ///////////
                                 break;
                             case 3:
-                                System.out.println("Trasy: ");
+                                System.out.println("Trasy:");
+                                System.out.println(systemlotniczy.getTrasy());
                                 ///////
                                 break;
                             case 0:
                                 break;
                             default:
-                                System.out.println("Podano złą wartość!");
+                                System.out.println("Podano zla wartosc!");
                                 break;
                         }
                         if(x==0){
                             break;
                         }
-
                     }
                     x=99;
                     break;
@@ -199,18 +217,19 @@ public class Main {
                     while (true)
                     {
 
-                        System.out.println("Zarządzanie lotniskami");
-                        System.out.println("1. Dodaj lotnisko");
-                        System.out.println("2. Usuń lotnisko");
-                        System.out.println("3. Wyświetl lotniska");
-                        System.out.println("0. Cofnij");
+                        System.out.println("Zarzadzanie lotniskami");
+                        System.out.println("1.Dodaj lotnisko");
+                        System.out.println("2.Usun lotnisko");
+                        System.out.println("3.Wyswietl lotniska");
+                        System.out.println("0.cofnij");
                         x = scan.nextInt();//zmienna
+                        String nazwa,miasto;
                         switch (x)//switch 2 rzedu
                         {
                             case 1:
-                                System.out.println("Podaj nazwę lotniska: ");
+                                System.out.println("Podaj nazwe lotniska: ");
                                 nazwa = scan.next();
-                                System.out.println("Podaj nazwę miasta: ");
+                                System.out.println("Podaj nazwe miasta: ");
                                 miasto = scan.next();
                                 systemlotniczy.dodajLotnisko(new Lotnisko(nazwa,miasto));
                                 System.out.println("Dodano Lotnisko: " + nazwa + " " + miasto);
@@ -218,7 +237,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Usuwanie lotniska");
-                                System.out.println("Podaj nazwę lotniska do usunięcia: ");
+                                System.out.println("Podaj nazwe lotniska do usuniecia: ");
                                 nazwa=scan.next();
                                 Iterator<Lotnisko> itr = systemlotniczy.getLotniska().listIterator();
                                 while (itr.hasNext())
@@ -236,9 +255,8 @@ public class Main {
                             case 0:
                                 break;
                             default:
-                                System.out.println("Podano złą wartość!");
+                                System.out.println("Podano zla wartosc!");
                                 break;
-
                         }
                         if(x==0){
                             break;
@@ -247,12 +265,12 @@ public class Main {
                     x=99;
                     break;
                 case 5:
-                    System.out.println("Rezerwacja biletów");
+                    System.out.println("Rezerwacja biletow");
                     break;
                 case 0:
                     break;
                 default:
-                    System.out.println("Podano złą wartość!");
+                    System.out.println("Podano zla wartosc!");
                     break;
 
             }

@@ -15,10 +15,12 @@ public class ZapisOdczytSystemu implements Serializable {
                 List<Klient> klienci = new ArrayList<>(system_lotniczy.getKlienci());
                 List<Lotnisko> lotniska = new ArrayList<>(system_lotniczy.getLotniska());
                 List<Trasa> trasy = new ArrayList<>(system_lotniczy.getTrasy());
+                List<Rezerwacja> rezerwacje = new ArrayList<>(system_lotniczy.getRezerwacje());
                 out.writeObject(samoloty);
                 out.writeObject(klienci);
                 out.writeObject(lotniska);
                 out.writeObject(trasy);
+                out.writeObject(rezerwacje);
                 out.close();
                 fileOut.close();
                 System.out.println("Zapisano stan systemu do pliku: " + nazwaPliku);
@@ -35,10 +37,12 @@ public class ZapisOdczytSystemu implements Serializable {
                 List<Klient> klienci = (List<Klient>) in.readObject();
                 List<Lotnisko> lotniska = (List<Lotnisko>) in.readObject();
                 List<Trasa> trasy = (List<Trasa>) in.readObject();
+                List<Rezerwacja> rezerwacje = (List<Rezerwacja>) in.readObject();
                 system_lotniczy.setSamoloty(samoloty);
                 system_lotniczy.setKlienci(klienci);
                 system_lotniczy.setLotniska(lotniska);
                 system_lotniczy.setTrasy(trasy);
+                system_lotniczy.setRezerwacje(rezerwacje);
                 in.close();
                 fileIn.close();
                 System.out.println("Odczytano stan systemu z pliku: " + nazwaPliku);

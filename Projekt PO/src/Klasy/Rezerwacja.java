@@ -1,9 +1,10 @@
 package Klasy;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Rezerwacja {
+public class Rezerwacja implements Serializable {
     private Klient klient;
     private Trasa trasa;
     private LocalDateTime dataWylotu;

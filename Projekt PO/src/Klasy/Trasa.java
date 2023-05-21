@@ -7,12 +7,19 @@ public class Trasa implements Serializable {
     private Lotnisko poczatek;
     private Lotnisko koniec;
     private int czasLotu;
+    private int index;
+    private static int maxindex;
 
     public Trasa(int odleglosc, Lotnisko poczatek, Lotnisko koniec, int czasLotu) {
         this.odleglosc = odleglosc;
         this.poczatek = poczatek;
         this.koniec = koniec;
         this.czasLotu = czasLotu;
+        if(!(maxindex>1000)){
+            this.maxindex=1000;
+        }
+        this.index=maxindex;
+        maxindex+=1;
     }
 
     public int getCzasLotu() {
@@ -41,6 +48,8 @@ public class Trasa implements Serializable {
         return this.odleglosc;
 
     }
+    public Lotnisko getLotnisko1(){return poczatek;}
+    public Lotnisko getLotnisko2(){return koniec;}
 
     @Override
     public String toString() {

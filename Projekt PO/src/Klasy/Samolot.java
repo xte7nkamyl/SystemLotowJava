@@ -5,11 +5,21 @@ import java.io.Serializable;
 public class Samolot implements Serializable {
     private int iloscMiejsc;
     private int zasieg;
+    private int index;
+    protected static int maxindex;
+
 
     public Samolot(int iloscMiejsc, int zasieg) {
         this.iloscMiejsc = iloscMiejsc;
         this.zasieg = zasieg;
+
+        if(!(maxindex>1000)){
+            this.maxindex=1000;
+        }
+        this.index=maxindex;
+        maxindex+=1;
     }
+    public int getIndex(){return index;}
 
     public int getIloscMiejsc() {
         return iloscMiejsc;

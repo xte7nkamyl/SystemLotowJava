@@ -20,7 +20,8 @@ public class Main {
             System.out.println("2.Zarzadzanie klientami ");
             System.out.println("3.Zarzadzanie trasami ");
             System.out.println("4.Zarzadzanie lotniskami ");
-            System.out.println("5.Rezerwacja biletów");
+            System.out.println("5.Zarzadzanie lotami ");
+            System.out.println("6.Rezerwacja biletów");
             System.out.println("0.Wyjdz");
             x = scan.nextInt();
 
@@ -265,6 +266,33 @@ public class Main {
                     x=99;
                     break;
                 case 5:
+                    System.out.println("Zarzadzanie lotami");
+                    while(true){
+                        System.out.println("1.Dodaj lot");
+                        System.out.println("2.Usun lot");
+                        System.out.println("3.Wyswietl loty");
+                        System.out.println("0.cofnij");
+                        x=scan.nextInt();
+                        switch(x){
+                            case 1:
+                                System.out.println("Dodawanie lotu");
+                                System.out.println("Podaj lotnisko poczatkowe:");
+                                String lotnisko1=scan.next();
+                                System.out.println("Podaj lotnisko koncowe:");
+                                String lotnisko2=scan.next();
+
+
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 0:
+                                break;
+                        }
+                    }
+                    break;
+                case 6:
                     System.out.println("Rezerwacja biletow");
                     break;
                 case 0:

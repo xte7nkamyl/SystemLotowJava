@@ -1,4 +1,5 @@
 package Klasy;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -11,13 +12,12 @@ public class System_lotniczy  {
     private List<Lotnisko> lotniska = new ArrayList();
     private List<Samolot> samoloty = new ArrayList();
     private List<Rezerwacja> rezerwacje = new ArrayList();
-    private List<Lot> loty=new ArrayList();
     public void dodajKlient(Klient k) {
         klienci.add(k);
     }
 
-    public void usunKlient(Klient k) {
-        klienci.remove(k);
+    public void usunKlient(int idx) {
+        klienci.remove(idx);
     }
 
     public List<Klient> getKlienci() {
@@ -32,8 +32,8 @@ public class System_lotniczy  {
         trasy.add(t);
     }
 
-    public void usunTrasa(Trasa t) {
-        trasy.remove(t);
+    public void usunTrasa(int idx) {
+        trasy.remove(idx);
     }
 
     public List<Trasa> getTrasy() {
@@ -48,8 +48,8 @@ public class System_lotniczy  {
         lotniska.add(l);
     }
 
-    public void usunLotnisko(Lotnisko l) {
-        lotniska.remove(l);
+    public void usunLotnisko(int idx) {
+        lotniska.remove(idx);
     }
 
     public List<Lotnisko> getLotniska() {
@@ -80,8 +80,8 @@ public class System_lotniczy  {
         rezerwacje.add(r);
     }
 
-    public void usunRezerwacje(Rezerwacja r) {
-        rezerwacje.remove(r);
+    public void usunRezerwacje(int idx) {
+        rezerwacje.remove(idx);
     }
 
     public List<Rezerwacja> getRezerwacje() {
@@ -91,7 +91,8 @@ public class System_lotniczy  {
     public void setRezerwacje(List<Rezerwacja> rezerwacje) {
         this.rezerwacje = rezerwacje;
     }
-    /*public void dodajLot(Lot l) {
+
+     /*public void dodajLot(Lot l) {
         loty.add(l);
     }
     public void usunLot(Lot l) {
@@ -130,7 +131,7 @@ public class System_lotniczy  {
         }
 
     }*/
-
+/*
     public void generatorLotowDlaKlienta(Klient klient, Trasa trasa, LocalDate dataOdlotu, LocalDate DataDolotu) {
 
         Scanner scanner = new Scanner(System.in);
@@ -159,8 +160,8 @@ public class System_lotniczy  {
     }
     public void generatorLotowDlatrasy(Trasa trasa,LocalDate dataOdlotu,LocalDate DataDolotu,int czestotliwosc) {
         Random random = new Random();
-    LocalDateTime czasodlotu = LocalDateTime.of(dataOdlotu,LocalTime.of(random.nextInt(24),random.nextInt(60)));
-    LocalDateTime czasprzylotu=czasodlotu.plusMinutes(trasa.getCzasLotu());
+        LocalDateTime czasodlotu = LocalDateTime.of(dataOdlotu,LocalTime.of(random.nextInt(24),random.nextInt(60)));
+        LocalDateTime czasprzylotu=czasodlotu.plusMinutes(trasa.getCzasLotu());
 
         for (Samolot samolot: samoloty){
             if(czestotliwosc<=1) {
@@ -192,4 +193,5 @@ public class System_lotniczy  {
         }
     }
 
+ */
 }

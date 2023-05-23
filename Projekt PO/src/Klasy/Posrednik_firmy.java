@@ -9,4 +9,9 @@ public class Posrednik_firmy extends Klient {
         this.nazwa_firmy = nazwa_firmy;
         this.KRS = KRS;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " NazwaFirmy - " +nazwa_firmy+ " Krs - "+KRS;
+    }
 }

@@ -37,11 +37,6 @@ public class Rezerwacja implements Serializable {
 
     @Override
     public String toString() {
-        return "Rezerwacja{" +
-                "klient = " + klient +
-                ", trasa = " + trasa +
-                ", data wylotu = " + dataWylotu +
-                ", samolot = " + samolot +
-                '}';
+        return "Rezerwacja{" + "klient = " + klient + ", trasa = " + trasa + ", data wylotu = " + dataWylotu + ", samolot = " + samolot + '}' + "\n";
     }
 }

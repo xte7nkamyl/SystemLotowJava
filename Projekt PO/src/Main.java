@@ -1,8 +1,10 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.Scanner;
 import Klasy.*;
 
-
+/*
 
 public class Main {
     public static void main(String[] args)
@@ -20,8 +22,8 @@ public class Main {
             System.out.println("2.Zarzadzanie klientami ");
             System.out.println("3.Zarzadzanie trasami ");
             System.out.println("4.Zarzadzanie lotniskami ");
-            System.out.println("5.Zarzadzanie lotami ");
-            System.out.println("6.Rezerwacja biletów");
+            System.out.println("5.Rezerwacja biletów");
+            System.out.println("6 Generator Lotow");
             System.out.println("0.Wyjdz");
             x = scan.nextInt();
 
@@ -245,7 +247,7 @@ public class Main {
                                 {
                                     Lotnisko lotnisko = itr.next();
                                     if (lotnisko.getNazwa().equals(nazwa))
-                                        itr.remove();
+                                        systemlotniczy.usunLotnisko(lotnisko);
                                 }
                                 break;
                             case 3:
@@ -266,34 +268,23 @@ public class Main {
                     x=99;
                     break;
                 case 5:
-                    System.out.println("Zarzadzanie lotami");
-                    while(true){
-                        System.out.println("1.Dodaj lot");
-                        System.out.println("2.Usun lot");
-                        System.out.println("3.Wyswietl loty");
-                        System.out.println("0.cofnij");
-                        x=scan.nextInt();
-                        switch(x){
-                            case 1:
-                                System.out.println("Dodawanie lotu");
-                                System.out.println("Podaj lotnisko poczatkowe:");
-                                String lotnisko1=scan.next();
-                                System.out.println("Podaj lotnisko koncowe:");
-                                String lotnisko2=scan.next();
-
-
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            case 0:
-                                break;
-                        }
-                    }
+                    System.out.println("Rezerwacja biletow");
                     break;
                 case 6:
-                    System.out.println("Rezerwacja biletow");
+                    String imie,nazwisko;
+                    int pesel;
+                    System.out.println("Generator Lotow: ");
+                    System.out.print("Podaj imię: ");
+                    imie = scan.next();
+                    System.out.print("Podaj nazwisko: ");
+                    nazwisko = scan.next();
+                    System.out.println("Podaj pesel");
+                    pesel = scan.nextInt();
+                    LocalDate date = LocalDate.now();
+                    LocalDate dated = LocalDate.of(2023,05,21);
+                    System.out.println(date);
+                    System.out.println(dated);
+                    systemlotniczy.generatorLotow(new Klient(imie,nazwisko,pesel),date,dated);
                     break;
                 case 0:
                     break;
@@ -310,3 +301,4 @@ public class Main {
     }
 }
 
+*/

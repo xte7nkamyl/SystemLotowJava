@@ -7,7 +7,6 @@ import java.util.List;
 public class ZapisOdczytSystemu implements Serializable {
 
         public static void zapisz(System_lotniczy system_lotniczy, String nazwaPliku) {
-
             try {
                 FileOutputStream fileOut = new FileOutputStream(nazwaPliku);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);

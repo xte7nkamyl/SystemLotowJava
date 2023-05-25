@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Klasa_ekonomiczna extends Samolot implements Serializable {
 
     public Klasa_ekonomiczna() {
-        super(400,4000);
+        super(400,400);
     }
 
     @Override

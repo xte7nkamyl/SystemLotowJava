@@ -12,7 +12,8 @@ public class ZarzadzanieTrasami extends MainInterface{
     private JButton odswiezListeButton;
     private JButton wrocButton;
     private JPanel zarzadzanieTrasami;
-private DefaultListModel<Trasa> trasaListModel;
+    private DefaultListModel<Trasa> trasaListModel;
+
     public ZarzadzanieTrasami(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);

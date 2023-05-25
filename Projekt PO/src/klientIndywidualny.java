@@ -40,7 +40,7 @@ private void dodajKlientaIndywidualengo()
     String imie = this.imie.getText();
     String nazwisko = this.nazwisko.getText();
     String pesel = this.pesel.getText();
-    if(imie.isEmpty() && nazwisko.isEmpty() && pesel.isEmpty())
+    if(imie.isEmpty() || nazwisko.isEmpty() || pesel.isEmpty())
     {
         JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
     }

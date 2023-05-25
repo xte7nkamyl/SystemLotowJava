@@ -17,7 +17,7 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
     public ZarzadzanieRezerwacjami(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    setSize(900,500);
+    setSize(900,600);
     setLocationRelativeTo(null);
     setContentPane(zarzadzanieRezerwacjami);
     setVisible(true);

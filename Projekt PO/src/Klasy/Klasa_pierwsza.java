@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Klasa_pierwsza extends Samolot implements Serializable {
 
     public Klasa_pierwsza() {
-        super(200, 6000);
+        super(200, 600);
     }
 
     @Override

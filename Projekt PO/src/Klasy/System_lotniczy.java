@@ -170,8 +170,32 @@ public class System_lotniczy  {
                 }
             }
         }
+    }*/
+    public void generatorLotowDlatrasy(Trasa trasa,LocalDateTime dataOdlotu,int czestotliwosc) {
+        LocalDateTime dataPrzylotu = dataOdlotu.plusMinutes(trasa.getCzasLotu());
+        {
+            for (Samolot samolot : samoloty) {
+                if (czestotliwosc <= 1) {
+                    if (samolot.getZasieg() >= trasa.getOdleglosc()) {
+                        Lot lot = new Lot(samolot, trasa, dataOdlotu, dataPrzylotu);
+                        loty.add(lot);
+                        break;
+                    }
+                }
+                if (czestotliwosc <= 2) {
+                    if (samolot.getZasieg() >= trasa.getOdleglosc()) {
+                        dataOdlotu.plusDays(7);
+                        dataPrzylotu.plusDays(7);
+                        Lot lot = new Lot(samolot, trasa, dataOdlotu, dataPrzylotu);
+                        loty.add(lot);
+                        break;
+                    }
+                }
+
+            }//tutaj to jest to samo co ponizej tylko doszedlem do wniosku ze ten zakres czasu nie jest potrzebny
     }
-    public void generatorLotowDlatrasy(Trasa trasa,LocalDate dataOdlotu,LocalDate DataDolotu,int czestotliwosc) {
+    }
+/*public void generatorLotowDlatrasy(Trasa trasa,LocalDate dataOdlotu,LocalDate DataDolotu,int czestotliwosc) {
         Random random = new Random();
         LocalDateTime czasodlotu = LocalDateTime.of(dataOdlotu,LocalTime.of(random.nextInt(24),random.nextInt(60)));
         LocalDateTime czasprzylotu=czasodlotu.plusMinutes(trasa.getCzasLotu());
@@ -204,7 +228,6 @@ public class System_lotniczy  {
                 }
             }
         }
-    }
+    }*/
 
- */
 }

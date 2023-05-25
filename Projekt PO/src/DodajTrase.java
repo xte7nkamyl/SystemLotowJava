@@ -1,3 +1,4 @@
+import Klasy.Klient_indywidualny;
 import Klasy.Lotnisko;
 import Klasy.System_lotniczy;
 import Klasy.Trasa;
@@ -30,7 +31,7 @@ public class DodajTrase extends ZarzadzanieTrasami{
     lotniskoK.setModel(lotniskoComboBoxModel2);
     for(Lotnisko lotnisko: system_lotniczy.getLotniska())
     {lotniskoComboBoxModel1.addElement(lotnisko);
-    lotniskoComboBoxModel2.addElement(lotnisko);
+        lotniskoComboBoxModel2.addElement(lotnisko);
     }
     dodajButton.addActionListener(new ActionListener() {
         @Override
@@ -44,7 +45,8 @@ public class DodajTrase extends ZarzadzanieTrasami{
             dispose();
         }
     });
-}
+
+    }
 private void dodajTrase()
 {
     String odleglosc = this.odleglosc.getText();
@@ -52,9 +54,22 @@ private void dodajTrase()
     Lotnisko p = (Lotnisko) lotniskoP.getSelectedItem();
     Lotnisko k = (Lotnisko) lotniskoK.getSelectedItem();
 
-    int odlegloscInt = Integer.parseInt(odleglosc);
-    int czasLotuInt = Integer.parseInt(czasLotu);
-    system_lotniczy.dodajTrasa(new Trasa(odlegloscInt,p,k,czasLotuInt));
-    dispose();
+    if(odleglosc.isEmpty() || czasLotu.isEmpty())
+    {
+        JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
+    }
+    else
+    {
+        try {
+            int odlegloscInt = Integer.parseInt(odleglosc);
+            int czasLotuInt = Integer.parseInt(czasLotu);
+            system_lotniczy.dodajTrasa(new Trasa(odlegloscInt,p,k,czasLotuInt));
+            dispose();
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this,"Nieprawidłowy format odleglosc lub czas lotu.", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
 }

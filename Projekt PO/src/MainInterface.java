@@ -106,7 +106,7 @@ private void zarzadzajRezerwacjami()
         System_lotniczy system_lotniczy = new System_lotniczy();
         ZapisOdczytSystemu zapisOdczyt= new ZapisOdczytSystemu();
         ZapisOdczytSystemu.odczytaj(system_lotniczy, "SystemLotoww.txt");
-        MainInterface dialog = new MainInterface(system_lotniczy);
+        MainInterface main = new MainInterface(system_lotniczy);
 
     }
 }

@@ -22,7 +22,13 @@ public class Lot implements Serializable {
     }
     public LocalDateTime getCzasWylotu(){return czaswylotu;}
     public Samolot getSamolot(){return samolot;}
+    public Trasa getTrasa()
+    {
+        return trasa;
+    }
 
-
-
+    @Override
+    public String toString() {
+        return "Data :"+czaswylotu+"--"+czasdolotu+" samolot: "+samolot+" trasa "+trasa+"\n";
+    }
 }

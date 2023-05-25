@@ -1,3 +1,4 @@
+import Klasy.Klient_indywidualny;
 import Klasy.Posrednik_firmy;
 import Klasy.System_lotniczy;
 
@@ -43,9 +44,34 @@ private void dodajPosrednikaFirmy()
     String pesel = this.pesel.getText();
     String nazwaFirmy = this.NazwaFirmy.getText();
     String krs = this.KRS.getText();
-    int peselInt = Integer.parseInt(pesel);
-    int krsInt = Integer.parseInt(krs);
-    system_lotniczy.dodajKlient(new Posrednik_firmy(imie,nazwisko,peselInt,nazwaFirmy,krsInt));
-    dispose();
+    if(imie.isEmpty() || nazwisko.isEmpty() || pesel.isEmpty() || nazwaFirmy.isEmpty() || krs.isEmpty())
+    {
+        JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
+    }
+    else
+    {
+        try {
+            if (!imie.matches("[a-zA-Z]+")) {
+                JOptionPane.showMessageDialog(this,"Nieprawidłowy format Imie", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!nazwisko.matches("[a-zA-Z]+")) {
+                JOptionPane.showMessageDialog(this,"Nieprawidłowy format Nazwisko", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!nazwaFirmy.matches("[a-zA-Z]+")) {
+                JOptionPane.showMessageDialog(this,"Nieprawidłowy format Nazwa Firmy", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            int peselInt = Integer.parseInt(pesel);
+            int krsInt = Integer.parseInt(krs);
+            system_lotniczy.dodajKlient(new Posrednik_firmy(imie,nazwisko,peselInt,nazwaFirmy,krsInt));
+            dispose();
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this,"Nieprawidłowy format Pesel lub KRS.", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
 }

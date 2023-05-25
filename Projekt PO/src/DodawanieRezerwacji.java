@@ -24,7 +24,7 @@ public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setVisible(true);
-    setSize(500,400);
+    setSize(900,500);
     setContentPane(dodawanieRezerwacji);
     setLocationRelativeTo(null);
     klientComboBoxModel = new DefaultComboBoxModel<>();

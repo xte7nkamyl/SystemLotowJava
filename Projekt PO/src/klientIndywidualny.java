@@ -5,6 +5,7 @@ import Klasy.System_lotniczy;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.invoke.StringConcatException;
 
 public class klientIndywidualny extends ZarzadzanieKlientami{
     private JPanel dodawanieKlientow;
@@ -24,7 +25,7 @@ public klientIndywidualny(System_lotniczy system_lotniczy) {
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajKlientaIndywidualengo();
-
+            odswierzListeKlientow();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
@@ -39,10 +40,29 @@ private void dodajKlientaIndywidualengo()
     String imie = this.imie.getText();
     String nazwisko = this.nazwisko.getText();
     String pesel = this.pesel.getText();
-    int peselInt = Integer.parseInt(pesel);
-    Klient_indywidualny klientIndywidualny = new Klient_indywidualny(imie,nazwisko,peselInt);
-    system_lotniczy.dodajKlient(klientIndywidualny);
-
-    dispose();
+    if(imie.isEmpty() && nazwisko.isEmpty() && pesel.isEmpty())
+    {
+        JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
+    }
+    else
+    {
+        try {
+            if (!imie.matches("[a-zA-Z]+")) {
+                JOptionPane.showMessageDialog(this,"Nieprawidłowy format Imie", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!nazwisko.matches("[a-zA-Z]+")) {
+                JOptionPane.showMessageDialog(this,"Nieprawidłowy format Nazwisko", "Błąd", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            int peselInt = Integer.parseInt(pesel);
+            system_lotniczy.dodajKlient(new Klient_indywidualny(imie,nazwisko,peselInt));
+            dispose();
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this,"Nieprawidłowy format Pesel.", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
 }

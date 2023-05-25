@@ -20,12 +20,12 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="6bb47" class="javax.swing.JButton" binding="OdswierzListeKlientow" default-binding="true">
+      <component id="6bb47" class="javax.swing.JButton" binding="generatorLotow">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="GeneratorLotow"/>
         </properties>
       </component>
       <component id="ae06c" class="javax.swing.JButton" binding="zarzadzajLotniskamiButton" default-binding="true">

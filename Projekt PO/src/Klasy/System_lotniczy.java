@@ -12,6 +12,7 @@ public class System_lotniczy  {
     private List<Lotnisko> lotniska = new ArrayList();
     private List<Samolot> samoloty = new ArrayList();
     private List<Rezerwacja> rezerwacje = new ArrayList();
+    private List<Lot> loty = new ArrayList<>();
     public void dodajKlient(Klient k) {
         klienci.add(k);
     }
@@ -64,8 +65,8 @@ public class System_lotniczy  {
         samoloty.add(s);
     }
 
-    public void usunSamolot(Samolot s) {
-        samoloty.remove(s);
+    public void usunSamolot(int idx) {
+        samoloty.remove(idx);
     }
 
     public List<Samolot> getSamoloty() {
@@ -90,6 +91,18 @@ public class System_lotniczy  {
 
     public void setRezerwacje(List<Rezerwacja> rezerwacje) {
         this.rezerwacje = rezerwacje;
+    }
+    public void dodajLot(Lot l)
+    {
+        loty.add(l);
+    }
+    public void usunLot(int idx)
+    {
+        loty.remove(idx);
+    }
+    public List<Lot> getLoty()
+    {
+        return loty;
     }
 
      /*public void dodajLot(Lot l) {

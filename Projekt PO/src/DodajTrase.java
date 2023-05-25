@@ -51,6 +51,7 @@ private void dodajTrase()
     String czasLotu = this.czasLotu.getText();
     Lotnisko p = (Lotnisko) lotniskoP.getSelectedItem();
     Lotnisko k = (Lotnisko) lotniskoK.getSelectedItem();
+
     int odlegloscInt = Integer.parseInt(odleglosc);
     int czasLotuInt = Integer.parseInt(czasLotu);
     system_lotniczy.dodajTrasa(new Trasa(odlegloscInt,p,k,czasLotuInt));

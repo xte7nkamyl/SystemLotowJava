@@ -1,3 +1,4 @@
+import Klasy.Klient_indywidualny;
 import Klasy.Lotnisko;
 import Klasy.System_lotniczy;
 
@@ -37,6 +38,22 @@ public class DodawanieLotniska extends ZarzadzanieLotniskami{
         String nazwa = this.nazwa.getText();
         String miasto = this.miasto.getText();
         system_lotniczy.dodajLotnisko(new Lotnisko(nazwa,miasto));
-        dispose();
+        if(nazwa.isEmpty() && miasto.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            try {
+                if (nazwa.matches("[a-zA-Z]+") && miasto.matches("[a-zA-Z]+")) {
+                    system_lotniczy.dodajLotnisko(new Lotnisko(nazwa,miasto));
+                }
+                dispose();
+            }
+            catch (NumberFormatException e)
+            {
+                JOptionPane.showMessageDialog(this,"Nieprawidłowy format .", "Błąd", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 }

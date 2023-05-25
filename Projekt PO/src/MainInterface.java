@@ -9,7 +9,7 @@ public class MainInterface extends JFrame {
     private JButton zarządzajSamolotamiButton;
     private JButton wyjdzButton;
     private JPanel mainPanel;
-    private JButton OdswierzListeKlientow;
+    private JButton generatorLotow;
     private JButton zarzadzajTrasamiButton;
     private JButton zarzadzajLotniskamiButton;
     private JButton zarzadzajSamolotamiButton;
@@ -64,6 +64,12 @@ public class MainInterface extends JFrame {
             zarzadzajRezerwacjami();
             }
         });
+        generatorLotow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                generatorLotow();
+            }
+        });
     }
 private void zarzadzajRezerwacjami()
 {
@@ -89,6 +95,11 @@ private void zarzadzajRezerwacjami()
     {
         SamolotyMenu samolotyMenu = new SamolotyMenu(system_lotniczy);
         samolotyMenu.setVisible(true);
+    }
+    private void generatorLotow()
+    {
+        GeneratorLotow generatorLotow = new GeneratorLotow(system_lotniczy);
+        generatorLotow.setVisible(true);
     }
     public static void main(String[] args)
     {

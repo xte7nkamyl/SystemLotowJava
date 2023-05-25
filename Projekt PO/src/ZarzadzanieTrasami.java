@@ -9,7 +9,7 @@ public class ZarzadzanieTrasami extends MainInterface{
     private JList listaTras;
     private JButton usunTraseButton;
     private JButton dodajTraseButton;
-    private JButton odswierzListeButton;
+    private JButton odswiezListeButton;
     private JButton wrocButton;
     private JPanel zarzadzanieTrasami;
 private DefaultListModel<Trasa> trasaListModel;
@@ -35,7 +35,7 @@ private DefaultListModel<Trasa> trasaListModel;
                 dispose();
             }
         });
-        odswierzListeButton.addActionListener(new ActionListener() {
+        odswiezListeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 trasaListModel.removeAllElements();

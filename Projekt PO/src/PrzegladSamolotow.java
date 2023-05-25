@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 import Klasy.Samolot;
 import Klasy.System_lotniczy;
@@ -13,6 +11,7 @@ public class PrzegladSamolotow extends MainInterface{
     private JPanel przegladSamolotow;
     private JList listaSamolotow;
     private JScrollPane Scroll;
+    private JButton usunSamolotButton;
 
     public PrzegladSamolotow(System_lotniczy system_lotniczy)
     {
@@ -25,32 +24,29 @@ public class PrzegladSamolotow extends MainInterface{
         samolotListModel = new DefaultListModel<>();
         listaSamolotow.setModel(samolotListModel);
 for(Samolot samolot: system_lotniczy.getSamoloty())
-{
     samolotListModel.addElement(samolot);
-}
+
         wrocButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 wroc();
             }
         });
+        usunSamolotButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                usunSamolot();
+            }
+        });
     }
-
+    private void usunSamolot()
+    {
+        int idex = listaSamolotow.getSelectedIndex();
+        samolotListModel.remove(idex);
+        system_lotniczy.usunSamolot(idex);
+    }
     private void wroc()
     {
         this.dispose();
     }
-    /*private void wyswietlSamoloty()
-    {
-        samolotListModel = new DefaultListModel<>();
-        for (Samolot samolot: system_lotniczy.getSamoloty())
-        {
-            samolotListModel.addElement(samolot);
-        }
-        samolotList = new JList<>();
-
-        JOptionPane.showMessageDialog(this, samolotListModel.toArray(), "Lista Samolotów", JOptionPane.PLAIN_MESSAGE);
-
-    }
-*/
 }

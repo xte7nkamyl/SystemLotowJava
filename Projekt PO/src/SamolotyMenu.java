@@ -9,7 +9,6 @@ public class SamolotyMenu extends MainInterface {
     private JPanel menuSamoloty;
     private JButton dodajSamolotButton;
     private JButton wrocButton;
-    private JButton usunSamolotButton;
     private JButton przegladajSamolotyButton;
 
     public SamolotyMenu(System_lotniczy system_lotniczy)
@@ -39,13 +38,7 @@ public class SamolotyMenu extends MainInterface {
                 dodawanieSamolotow();
             }
         });
-        usunSamolotButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                usuwanieSamolotow();
 
-            }
-        });
     }
     private void dodawanieSamolotow()
     {
@@ -55,11 +48,6 @@ public class SamolotyMenu extends MainInterface {
     {
         PrzegladSamolotow przegladSamolotow = new PrzegladSamolotow(system_lotniczy);
         przegladSamolotow.setVisible(true);
-    }
-    private void usuwanieSamolotow()
-    {
-        UsuwanieSamolotow usuwanieSamolotow = new UsuwanieSamolotow(system_lotniczy);
-        usuwanieSamolotow.setVisible(true);
     }
     private void wroc()
     {

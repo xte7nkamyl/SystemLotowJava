@@ -41,11 +41,7 @@ dodajKlientaIndywidualnego();
         odswierzListeKLientowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                klientListModel.removeAllElements();
-                for (Klient klient: system_lotniczy.getKlienci())
-                {
-                    klientListModel.addElement(klient);
-                }
+               odswierzListeKlientow();
             }
         });
         usunKlientaButton.addActionListener(new ActionListener() {
@@ -77,5 +73,13 @@ private void usunKlienta()
     klientListModel.remove(idx);
     system_lotniczy.usunKlient(idx);
 
+}
+protected void odswierzListeKlientow()
+{
+    klientListModel.removeAllElements();
+    for (Klient klient: system_lotniczy.getKlienci())
+    {
+        klientListModel.addElement(klient);
+    }
 }
 }

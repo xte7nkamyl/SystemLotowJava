@@ -14,18 +14,11 @@ public class Lot implements Serializable {
     private static int maxindex;
     private int index;
 
-    public Lot(Samolot samolot1,Trasa trasa1, LocalDateTime czaswylotu1,LocalDateTime czasdolotu1){
-        this.samolot=samolot1;
-        this.trasa=trasa1;
-        this.czaswylotu=czaswylotu1;
-        this.czasdolotu=czasdolotu1;
-
-        if(!(maxindex>1000)){
-            this.maxindex=1000;
-        }
-        this.index=maxindex;
-        maxindex+=1;
-
+    public Lot(Samolot samolot,Trasa trasa, LocalDateTime czaswylotu,LocalDateTime czasdolotu){
+        this.samolot=samolot;
+        this.trasa=trasa;
+        this.czaswylotu=czaswylotu;
+        this.czasdolotu=czasdolotu;
     }
     public LocalDateTime getCzasWylotu(){return czaswylotu;}
     public Samolot getSamolot(){return samolot;}

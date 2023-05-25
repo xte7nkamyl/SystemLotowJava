@@ -1,6 +1,5 @@
 import Klasy.Rezerwacja;
 import Klasy.System_lotniczy;
-import Klasy.Trasa;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +9,7 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
     private JButton button1;
     private JButton dodajRezerwacjeButton;
     private JButton usunRezerwacjeButton;
-    private JButton odswierzListeButton;
+    private JButton odswiezListeButton;
     private JList listaRezerwacji;
     private JPanel zarzadzanieRezerwacjami;
     private DefaultListModel<Rezerwacja> rezerwacjaListModel;
@@ -36,7 +35,7 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
                 dispose();
             }
         });
-        odswierzListeButton.addActionListener(new ActionListener() {
+        odswiezListeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 rezerwacjaListModel.removeAllElements();

@@ -30,14 +30,6 @@
           </component>
         </children>
       </scrollpane>
-      <component id="5073e" class="javax.swing.JButton" binding="usunTraseButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="UsunTrase"/>
-        </properties>
-      </component>
       <component id="e870f" class="javax.swing.JButton" binding="dodajTraseButton" default-binding="true">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -46,12 +38,12 @@
           <text value="DodajTrase"/>
         </properties>
       </component>
-      <component id="ddec4" class="javax.swing.JButton" binding="odswierzListeButton" default-binding="true">
+      <component id="ddec4" class="javax.swing.JButton" binding="odswiezListeButton">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="OdswierzListe"/>
+          <text value="OdswiezListe"/>
         </properties>
       </component>
       <component id="c1404" class="javax.swing.JButton" binding="wrocButton" default-binding="true">
@@ -60,6 +52,14 @@
         </constraints>
         <properties>
           <text value="Wroc"/>
+        </properties>
+      </component>
+      <component id="5073e" class="javax.swing.JButton" binding="usunTraseButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="UsunTrase"/>
         </properties>
       </component>
     </children>

@@ -1,23 +1,24 @@
-import Klasy.Klasa_ekonomiczna;
-import Klasy.Samolot;
-import Klasy.System_lotniczy;
+import Klasy.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DodawanieSamolotow extends MainInterface{
+public class DodawanieSamolotow extends SamolotyMenu{
     private JButton klasaEkonomicznaButton;
     private JPanel dodawanieSamolotow;
-    private JButton wrocButton;
-public DodawanieSamolotow(System_lotniczy system_lotniczy) {
+    private JButton anulujButton;
+    private JButton klasaBiznesowaButton;
+    private JButton klasaPierwszaButton;
+
+    public DodawanieSamolotow(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setVisible(true);
-    setSize(800,500);
+    setSize(300,200);
     setContentPane(dodawanieSamolotow);
     setLocationRelativeTo(null);
-    wrocButton.addActionListener(new ActionListener() {
+    anulujButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             wroc();
@@ -30,11 +31,33 @@ public DodawanieSamolotow(System_lotniczy system_lotniczy) {
 
         }
     });
-}
+        klasaBiznesowaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                klasaBiznesowa();
+            }
+        });
+        klasaPierwszaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                klasaPierwsza();
+            }
+        });
+    }
 private void klasaEkonomiczna()
 {
-    Samolot samolot = new Klasa_ekonomiczna();
-    system_lotniczy.dodajSamolot(samolot);
+    system_lotniczy.dodajSamolot(new Klasa_ekonomiczna());
+    JOptionPane.showMessageDialog(this,"Samolot typu [KlasaEkonomiczna] został dodany!");
+}
+private void klasaBiznesowa()
+{
+    system_lotniczy.dodajSamolot(new Klasa_biznesowa());
+    JOptionPane.showMessageDialog(this,"Samolot typu [KlasaBiznesowa] został dodany!");
+}
+private void klasaPierwsza()
+{
+    system_lotniczy.dodajSamolot(new Klasa_pierwsza());
+    JOptionPane.showMessageDialog(this,"Samolot typu [KlasaPierwsza] został dodany!");
 }
 private void wroc()
 {

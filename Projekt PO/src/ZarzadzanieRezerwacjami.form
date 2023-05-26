@@ -42,36 +42,28 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="68e76" class="javax.swing.JButton" binding="dodajRezerwacjeButton" default-binding="true">
-        <constraints>
-          <grid row="6" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="DodajRezerwacje"/>
-        </properties>
-      </component>
-      <component id="ecd79" class="javax.swing.JButton" binding="usunRezerwacjeButton" default-binding="true">
-        <constraints>
-          <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="UsunRezerwacje"/>
-        </properties>
-      </component>
-      <component id="8fe60" class="javax.swing.JButton" binding="odswiezListeButton">
-        <constraints>
-          <grid row="6" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="OdswiezListe"/>
-        </properties>
-      </component>
-      <component id="418f" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="418f" class="javax.swing.JButton" binding="wrocButton">
         <constraints>
           <grid row="6" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Wroc"/>
+        </properties>
+      </component>
+      <component id="ecd79" class="javax.swing.JButton" binding="usunRezerwacjeButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="UsunRezerwacje"/>
+        </properties>
+      </component>
+      <component id="68e76" class="javax.swing.JButton" binding="dodajRezerwacjeButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="DodajRezerwacje"/>
         </properties>
       </component>
     </children>

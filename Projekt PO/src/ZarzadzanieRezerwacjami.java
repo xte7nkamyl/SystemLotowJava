@@ -6,10 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ZarzadzanieRezerwacjami extends MainInterface{
-    private JButton button1;
+    private JButton wrocButton;
     private JButton dodajRezerwacjeButton;
     private JButton usunRezerwacjeButton;
-    private JButton odswiezListeButton;
     private JList listaRezerwacji;
     private JPanel zarzadzanieRezerwacjami;
     private DefaultListModel<Rezerwacja> rezerwacjaListModel;
@@ -23,24 +22,20 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
     setVisible(true);
     rezerwacjaListModel = new DefaultListModel<>();
     listaRezerwacji.setModel(rezerwacjaListModel);
+        for(Rezerwacja rezerwacja: system_lotniczy.getRezerwacje())
+            rezerwacjaListModel.addElement(rezerwacja);
     dodajRezerwacjeButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
         dodawanieRezerwacji();
         }
     });
-        button1.addActionListener(new ActionListener() {
+        wrocButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-            }
-        });
-        odswiezListeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                rezerwacjaListModel.removeAllElements();
-                for(Rezerwacja rezerwacja: system_lotniczy.getRezerwacje())
-                    rezerwacjaListModel.addElement(rezerwacja);
+                MainInterface mainInterface = new MainInterface(system_lotniczy);
+                mainInterface.setVisible(true);
             }
         });
         usunRezerwacjeButton.addActionListener(new ActionListener() {
@@ -54,11 +49,19 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
     {
         DodawanieRezerwacji dodawanieRezerwacji = new DodawanieRezerwacji(system_lotniczy);
         dodawanieRezerwacji.setVisible(true);
+        dispose();
     }
     private void usunRezerwacje()
     {
-        int idx = listaRezerwacji.getSelectedIndex();
-        rezerwacjaListModel.remove(idx);
-        system_lotniczy.usunRezerwacje(idx);
+        Rezerwacja r = (Rezerwacja) listaRezerwacji.getSelectedValue();
+        if(r != null)
+        {
+            rezerwacjaListModel.removeElement(r);
+            system_lotniczy.usunRezerwacje(r);
+            JOptionPane.showMessageDialog(this,"Rezerwacja zostala usunieta!");
+        }
+        else {
+            JOptionPane.showMessageDialog(this,"Wybierz rezerwacje, ktora chcesz usunac", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

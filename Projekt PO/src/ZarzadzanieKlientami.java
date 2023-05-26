@@ -13,7 +13,6 @@ public class ZarzadzanieKlientami extends MainInterface{
     private JButton wrocButton;
     private JScrollPane scroll;
     private JPanel zarzadzanieKlientami;
-    private JButton odswierzListeKLientowButton;
     protected DefaultListModel<Klient> klientListModel;
     public ZarzadzanieKlientami(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
@@ -22,9 +21,12 @@ public class ZarzadzanieKlientami extends MainInterface{
     setSize(800,500);
     setContentPane(zarzadzanieKlientami);
     setLocationRelativeTo(null);
-
     klientListModel = new DefaultListModel<>();
     listaKlientow.setModel(klientListModel);
+        for (Klient klient: system_lotniczy.getKlienci())
+        {
+            klientListModel.addElement(klient);
+        }
 
     dodajKlientaIndywidualnegoButton.addActionListener(new ActionListener() {
         @Override
@@ -36,12 +38,8 @@ dodajKlientaIndywidualnego();
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-            }
-        });
-        odswierzListeKLientowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               odswierzListeKlientow();
+                MainInterface mainInterface = new MainInterface(system_lotniczy);
+                mainInterface.setVisible(true);
             }
         });
         usunKlientaButton.addActionListener(new ActionListener() {
@@ -61,25 +59,26 @@ dodajKlientaIndywidualnego();
     {
         PosrednikFirmy posrednikFirmy = new PosrednikFirmy(system_lotniczy);
         posrednikFirmy.setVisible(true);
+        dispose();
     }
 private void dodajKlientaIndywidualnego()
 {
     klientIndywidualny klientIndywidualny = new klientIndywidualny(system_lotniczy);
     klientIndywidualny.setVisible(true);
+    dispose();
 }
 private void usunKlienta()
 {
-    int idx = listaKlientow.getSelectedIndex();
-    klientListModel.remove(idx);
-    system_lotniczy.usunKlient(idx);
+   Klient k = (Klient) listaKlientow.getSelectedValue();
+   if(k != null)
+   {
+       klientListModel.removeElement(k);
+       system_lotniczy.usunKlient(k);
+       JOptionPane.showMessageDialog(this,"Klient zostal usuniety!");
+   }
+   else{
+       JOptionPane.showMessageDialog(this,"Wybierz Klienta, ktorego chcesz usunac", "Błąd", JOptionPane.ERROR_MESSAGE);
+   }
 
-}
-protected void odswierzListeKlientow()
-{
-    klientListModel.removeAllElements();
-    for (Klient klient: system_lotniczy.getKlienci())
-    {
-        klientListModel.addElement(klient);
-    }
 }
 }

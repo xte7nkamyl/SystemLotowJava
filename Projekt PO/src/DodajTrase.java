@@ -1,7 +1,8 @@
-import Klasy.Klient_indywidualny;
+
 import Klasy.Lotnisko;
 import Klasy.System_lotniczy;
 import Klasy.Trasa;
+import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -37,12 +38,13 @@ public class DodajTrase extends ZarzadzanieTrasami{
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajTrase();
+            wroc();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            dispose();
+            wroc();
         }
     });
 
@@ -64,12 +66,19 @@ private void dodajTrase()
             int odlegloscInt = Integer.parseInt(odleglosc);
             int czasLotuInt = Integer.parseInt(czasLotu);
             system_lotniczy.dodajTrasa(new Trasa(odlegloscInt,p,k,czasLotuInt));
-            dispose();
+            JOptionPane.showMessageDialog(this,"Trasa zostala dodana!");
+
         }
         catch (NumberFormatException e)
         {
             JOptionPane.showMessageDialog(this,"Nieprawidłowy format odleglosc lub czas lotu.", "Błąd", JOptionPane.ERROR_MESSAGE);
         }
     }
+}
+private void wroc()
+{
+    dispose();
+    ZarzadzanieTrasami zarzadzanieTrasami = new ZarzadzanieTrasami(system_lotniczy);
+    zarzadzanieTrasami.setVisible(true);
 }
 }

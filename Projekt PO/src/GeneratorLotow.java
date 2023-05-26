@@ -23,7 +23,7 @@ public class GeneratorLotow extends MainInterface{
     public GeneratorLotow(System_lotniczy system_lotniczy) {
         super(system_lotniczy);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(1200,600);
+        setSize(1300,600);
         setLocationRelativeTo(null);
         setContentPane(generatorLotow);
         setVisible(true);
@@ -41,6 +41,8 @@ public class GeneratorLotow extends MainInterface{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+                MainInterface mainInterface = new MainInterface(system_lotniczy);
+                mainInterface.setVisible(true);
             }
         });
         generujLotButton.addActionListener(new ActionListener() {
@@ -55,6 +57,7 @@ public class GeneratorLotow extends MainInterface{
             public void actionPerformed(ActionEvent e) {
                 PrzegladLotow przegladLotow = new PrzegladLotow(system_lotniczy);
                 przegladLotow.setVisible(true);
+                dispose();
             }
         });
     }
@@ -66,5 +69,6 @@ public class GeneratorLotow extends MainInterface{
         LocalDateTime localDateTime = LocalDateTime.ofInstant(selectedDate1.toInstant(), ZoneId.systemDefault());
         int czestotliwosc = (Integer) this.czestotliwosc.getValue();
         system_lotniczy.generatorLotowDlatrasy(t,localDateTime,czestotliwosc);
+        JOptionPane.showMessageDialog(this,"Lot zostal wygenerowany!");
     }
 }

@@ -17,8 +17,8 @@ public class System_lotniczy  {
         klienci.add(k);
     }
 
-    public void usunKlient(int idx) {
-        klienci.remove(idx);
+    public void usunKlient(Klient k) {
+        klienci.remove(k);
     }
 
     public List<Klient> getKlienci() {
@@ -33,8 +33,8 @@ public class System_lotniczy  {
         trasy.add(t);
     }
 
-    public void usunTrasa(int idx) {
-        trasy.remove(idx);
+    public void usunTrasa(Trasa t) {
+        trasy.remove(t);
     }
 
     public List<Trasa> getTrasy() {
@@ -49,8 +49,8 @@ public class System_lotniczy  {
         lotniska.add(l);
     }
 
-    public void usunLotnisko(int idx) {
-        lotniska.remove(idx);
+    public void usunLotnisko(Lotnisko l) {
+        lotniska.remove(l);
     }
 
     public List<Lotnisko> getLotniska() {
@@ -65,8 +65,8 @@ public class System_lotniczy  {
         samoloty.add(s);
     }
 
-    public void usunSamolot(int idx) {
-        samoloty.remove(idx);
+    public void usunSamolot(Samolot s) {
+        samoloty.remove(s);
     }
 
     public List<Samolot> getSamoloty() {
@@ -81,8 +81,8 @@ public class System_lotniczy  {
         rezerwacje.add(r);
     }
 
-    public void usunRezerwacje(int idx) {
-        rezerwacje.remove(idx);
+    public void usunRezerwacje(Rezerwacja r) {
+        rezerwacje.remove(r);
     }
 
     public List<Rezerwacja> getRezerwacje() {
@@ -96,13 +96,17 @@ public class System_lotniczy  {
     {
         loty.add(l);
     }
-    public void usunLot(int idx)
+    public void usunLot(Lot l)
     {
-        loty.remove(idx);
+        loty.remove(l);
     }
     public List<Lot> getLoty()
     {
         return loty;
+    }
+    public void setLoty(List<Lot> loty)
+    {
+        this.loty = loty;
     }
 
      /*public void dodajLot(Lot l) {

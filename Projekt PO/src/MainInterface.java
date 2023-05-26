@@ -1,4 +1,4 @@
-import Klasy.System_lotniczy;
+
 import Klasy.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 public class MainInterface extends JFrame {
     protected System_lotniczy system_lotniczy;
-    private JButton zarządzajSamolotamiButton;
     private JButton wyjdzButton;
     private JPanel mainPanel;
     private JButton generatorLotow;
@@ -15,7 +14,6 @@ public class MainInterface extends JFrame {
     private JButton zarzadzajSamolotamiButton;
     private JButton zarzadzajKlientamiButton;
     private JButton zarzadzanieRezerwacjamiButton;
-    private JButton wrocButton;
 
     public MainInterface(System_lotniczy system_lotniczy)
     {
@@ -37,13 +35,6 @@ public class MainInterface extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 zarzadzajKlientami();
-            }
-        });
-        wrocButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                ZapisOdczytSystemu.zapisz(system_lotniczy, "SystemLotoww.txt");
             }
         });
         zarzadzajLotniskamiButton.addActionListener(new ActionListener() {
@@ -70,26 +61,37 @@ public class MainInterface extends JFrame {
                 generatorLotow();
             }
         });
+        wyjdzButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                ZapisOdczytSystemu.zapisz(system_lotniczy, "SystemLotow.txt");
+            }
+        });
     }
 private void zarzadzajRezerwacjami()
 {
     ZarzadzanieRezerwacjami zarzadzanieRezerwacjami = new ZarzadzanieRezerwacjami(system_lotniczy);
     zarzadzanieRezerwacjami.setVisible(true);
+    dispose();
 }
-    private void zarzadzajTrasami()
+    protected void zarzadzajTrasami()
     {
         ZarzadzanieTrasami zarzadzanieTrasami = new ZarzadzanieTrasami(system_lotniczy);
         zarzadzanieTrasami.setVisible(true);
+        dispose();
     }
     private void zarzadzajLotniskami()
     {
         ZarzadzanieLotniskami zarzadzanieLotniskami = new ZarzadzanieLotniskami(system_lotniczy);
         zarzadzanieLotniskami.setVisible(true);
+        dispose();
     }
     private void zarzadzajKlientami()
     {
         ZarzadzanieKlientami zarzadzanieKlientami = new ZarzadzanieKlientami(system_lotniczy);
         zarzadzanieKlientami.setVisible(true);
+        dispose();
     }
     private void zarzadzajSamolotami()
     {
@@ -100,12 +102,13 @@ private void zarzadzajRezerwacjami()
     {
         GeneratorLotow generatorLotow = new GeneratorLotow(system_lotniczy);
         generatorLotow.setVisible(true);
+        dispose();
     }
     public static void main(String[] args)
     {
         System_lotniczy system_lotniczy = new System_lotniczy();
         ZapisOdczytSystemu zapisOdczyt= new ZapisOdczytSystemu();
-        ZapisOdczytSystemu.odczytaj(system_lotniczy, "SystemLotoww.txt");
+        ZapisOdczytSystemu.odczytaj(system_lotniczy, "SystemLotow.txt");
         MainInterface main = new MainInterface(system_lotniczy);
 
     }

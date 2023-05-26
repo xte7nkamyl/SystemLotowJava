@@ -28,12 +28,13 @@ public class PosrednikFirmy extends ZarzadzanieKlientami{
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajPosrednikaFirmy();
+            anuluj();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            dispose();
+            anuluj();
         }
     });
 }
@@ -66,6 +67,7 @@ private void dodajPosrednikaFirmy()
             int peselInt = Integer.parseInt(pesel);
             int krsInt = Integer.parseInt(krs);
             system_lotniczy.dodajKlient(new Posrednik_firmy(imie,nazwisko,peselInt,nazwaFirmy,krsInt));
+            JOptionPane.showMessageDialog(this,"Klient zostal dodany");
             dispose();
         }
         catch (NumberFormatException e)
@@ -74,4 +76,10 @@ private void dodajPosrednikaFirmy()
         }
     }
 }
+    private void anuluj()
+    {
+        dispose();
+        ZarzadzanieKlientami zarzadzanieKlientami = new ZarzadzanieKlientami(system_lotniczy);
+        zarzadzanieKlientami.setVisible(true);
+    }
 }

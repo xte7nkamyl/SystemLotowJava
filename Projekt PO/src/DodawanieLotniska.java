@@ -22,12 +22,13 @@ public class DodawanieLotniska extends ZarzadzanieLotniskami{
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajLotnisko();
+            anuluj();
         }
     });
         anulujButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                anuluj();
             }
         });
     }
@@ -44,11 +45,16 @@ public class DodawanieLotniska extends ZarzadzanieLotniskami{
                 if (nazwa.matches("[a-zA-Z]+") && miasto.matches("[a-zA-Z]+")) {
                     system_lotniczy.dodajLotnisko(new Lotnisko(nazwa,miasto));
                     JOptionPane.showMessageDialog(this,"Lotnisko zostalo dodane!");
-                    dispose();
                 }else {
                     JOptionPane.showMessageDialog(this,"Nieprawidłowy format Nazwa lub Miasto.", "Błąd", JOptionPane.ERROR_MESSAGE);
             }
 
         }
+    }
+    private void anuluj()
+    {
+        dispose();
+        ZarzadzanieLotniskami zarzadzanieLotniskami = new ZarzadzanieLotniskami(system_lotniczy);
+        zarzadzanieLotniskami.setVisible(true);
     }
 }

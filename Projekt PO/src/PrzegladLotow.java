@@ -13,12 +13,13 @@ public class PrzegladLotow extends GeneratorLotow{
     private JButton dodajRezerwacjeButton;
     private JButton wrocButton;
     private JPanel loty;
+    private JButton usunLotButton;
     private DefaultListModel<Lot> lotListModel;
     private DefaultComboBoxModel<Klient> klientListModel;
 public PrzegladLotow(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    setSize(1200,700);
+    setSize(1300,700);
     setLocationRelativeTo(null);
     setContentPane(loty);
     setVisible(true);
@@ -34,12 +35,19 @@ public PrzegladLotow(System_lotniczy system_lotniczy) {
         @Override
         public void actionPerformed(ActionEvent e) {
         dodajRezerwacje();
+        wroc();
         }
     });
     wrocButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            dispose();
+            wroc();
+        }
+    });
+    usunLotButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            usunLot();
         }
     });
 }
@@ -47,6 +55,34 @@ private void dodajRezerwacje()
 {
 Lot l = (Lot) listaLotow.getSelectedValue();
 Klient k = (Klient)  listaKlientow.getSelectedItem();
-system_lotniczy.dodajRezerwacje(new Rezerwacja(k,l.getTrasa(),l.getCzasWylotu(),l.getSamolot()));
+if(l != null)
+{
+    system_lotniczy.dodajRezerwacje(new Rezerwacja(k,l.getTrasa(),l.getCzasWylotu(),l.getSamolot()));
+    JOptionPane.showMessageDialog(this,"Rezerwacja zostala dodana!");
+}
+else{
+    JOptionPane.showMessageDialog(this,"Wybierz lot, ktory chcesz zarezerwowac!", "Błąd", JOptionPane.ERROR_MESSAGE);
+}
+
+}
+private void usunLot()
+{
+    Lot l = (Lot) listaLotow.getSelectedValue();
+    if(l != null)
+    {
+        lotListModel.removeElement(l);
+        system_lotniczy.usunLot(l);
+        JOptionPane.showMessageDialog(this,"Lot zostal usuniety!");
+    }
+    else
+    {
+        JOptionPane.showMessageDialog(this,"Wybierz lot, ktory chcesz usunac!", "Błąd", JOptionPane.ERROR_MESSAGE);
+    }
+}
+private void wroc()
+{
+    dispose();
+    GeneratorLotow generatorLotow = new GeneratorLotow(system_lotniczy);
+    generatorLotow.setVisible(true);
 }
 }

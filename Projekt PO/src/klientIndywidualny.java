@@ -25,13 +25,13 @@ public klientIndywidualny(System_lotniczy system_lotniczy) {
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajKlientaIndywidualengo();
-            odswierzListeKlientow();
+            anuluj();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-        dispose();
+        anuluj();
         }
     });
 }
@@ -57,6 +57,7 @@ private void dodajKlientaIndywidualengo()
             }
             int peselInt = Integer.parseInt(pesel);
             system_lotniczy.dodajKlient(new Klient_indywidualny(imie,nazwisko,peselInt));
+            JOptionPane.showMessageDialog(this,"Klient zostal dodany!");
             dispose();
         }
         catch (NumberFormatException e)
@@ -64,5 +65,11 @@ private void dodajKlientaIndywidualengo()
             JOptionPane.showMessageDialog(this,"Nieprawidłowy format Pesel.", "Błąd", JOptionPane.ERROR_MESSAGE);
         }
     }
+}
+private void anuluj()
+{
+    dispose();
+    ZarzadzanieKlientami zarzadzanieKlientami = new ZarzadzanieKlientami(system_lotniczy);
+    zarzadzanieKlientami.setVisible(true);
 }
 }

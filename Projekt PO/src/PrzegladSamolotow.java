@@ -41,9 +41,16 @@ for(Samolot samolot: system_lotniczy.getSamoloty())
     }
     private void usunSamolot()
     {
-        int idex = listaSamolotow.getSelectedIndex();
-        samolotListModel.remove(idex);
-        system_lotniczy.usunSamolot(idex);
+        Samolot s = (Samolot) listaSamolotow.getSelectedValue();
+        if(s != null)
+        {
+            samolotListModel.removeElement(s);
+            system_lotniczy.usunSamolot(s);
+            JOptionPane.showMessageDialog(this,"Samolot zostal usuniety!");
+        }
+        else {
+            JOptionPane.showMessageDialog(this,"Wybierz samolot, ktory chcesz usunac", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
     }
     private void wroc()
     {

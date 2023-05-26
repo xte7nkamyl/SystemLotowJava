@@ -1,7 +1,4 @@
-import Klasy.Klient;
-import Klasy.Lotnisko;
-import Klasy.System_lotniczy;
-
+import Klasy.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,9 +7,8 @@ public class ZarzadzanieLotniskami extends MainInterface{
     private JList listaLotnisk;
     private JButton dodajLotnsikoButton;
     private JButton usunLotniskoButton;
-    private JButton odswierzListeButton;
     private JPanel zarzadzanieLotniskami;
-    private JButton button1;
+    private JButton wrocButton;
     private DefaultListModel<Lotnisko> lotniskoListModel;
     public ZarzadzanieLotniskami(System_lotniczy system_lotniczy) {
         super(system_lotniczy);
@@ -23,6 +19,9 @@ public class ZarzadzanieLotniskami extends MainInterface{
         setLocationRelativeTo(null);
         lotniskoListModel = new DefaultListModel<>();
         listaLotnisk.setModel(lotniskoListModel);
+        for(Lotnisko lotnisko: system_lotniczy.getLotniska())
+            lotniskoListModel.addElement(lotnisko);
+
     dodajLotnsikoButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -30,20 +29,12 @@ public class ZarzadzanieLotniskami extends MainInterface{
         }
     });
 
-        button1.addActionListener(new ActionListener() {
+        wrocButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-            }
-        });
-        odswierzListeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                lotniskoListModel.removeAllElements();
-                for(Lotnisko lotnisko: system_lotniczy.getLotniska())
-                {
-                    lotniskoListModel.addElement(lotnisko);
-                }
+                MainInterface mainInterface = new MainInterface(system_lotniczy);
+                mainInterface.setVisible(true);
             }
         });
         usunLotniskoButton.addActionListener(new ActionListener() {
@@ -57,11 +48,19 @@ public class ZarzadzanieLotniskami extends MainInterface{
     {
         DodawanieLotniska dodawanieLotniska = new DodawanieLotniska(system_lotniczy);
         dodawanieLotniska.setVisible(true);
+        dispose();
     }
     private void usunLotnisko()
     {
-        int idx = listaLotnisk.getSelectedIndex();
-        lotniskoListModel.remove(idx);
-        system_lotniczy.usunLotnisko(idx);
+        Lotnisko l = (Lotnisko) listaLotnisk.getSelectedValue();
+        if(l != null)
+        {
+            lotniskoListModel.removeElement(l);
+            system_lotniczy.usunLotnisko(l);
+            JOptionPane.showMessageDialog(this,"Lotnisko zostalo usuniete!");
+        }
+        else {
+            JOptionPane.showMessageDialog(this,"Wybierz lotnisko, ktore chcesz usunac", "Błąd", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

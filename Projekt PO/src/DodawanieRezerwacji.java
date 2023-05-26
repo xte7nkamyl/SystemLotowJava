@@ -47,12 +47,13 @@ public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajRezerwacje();
+            anuluj();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            dispose();
+            anuluj();
         }
     });
 }
@@ -69,7 +70,14 @@ public void dodajRezerwacje()
     //Instant instant = selectedDate.toInstant();
     //LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
     system_lotniczy.dodajRezerwacje(new Rezerwacja(k,t,localDateTime,s));
+    JOptionPane.showMessageDialog(this,"Rezerwacja zostala dodana!");
     dispose();
 
+}
+private void anuluj()
+{
+    dispose();
+    ZarzadzanieRezerwacjami zarzadzanieRezerwacjami = new ZarzadzanieRezerwacjami(system_lotniczy);
+    zarzadzanieRezerwacjami.setVisible(true);
 }
 }

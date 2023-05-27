@@ -1,13 +1,13 @@
-
 import Klasy.Lotnisko;
 import Klasy.System_lotniczy;
 import Klasy.Trasa;
-import org.junit.jupiter.api.Test;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ *klasa w ktore tworzone jest nowe okno z dodawaniem trasy
+ */
 public class DodajTrase extends ZarzadzanieTrasami{
     private JTextField odleglosc;
     private JTextField czasLotu;
@@ -19,6 +19,10 @@ public class DodajTrase extends ZarzadzanieTrasami{
     private DefaultComboBoxModel<Lotnisko> lotniskoComboBoxModel1;
     private DefaultComboBoxModel<Lotnisko> lotniskoComboBoxModel2;
 
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public DodajTrase(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,14 +30,15 @@ public class DodajTrase extends ZarzadzanieTrasami{
     setSize(500,200);
     setContentPane(dodajTrase);
     setLocationRelativeTo(null);
+
     lotniskoComboBoxModel1 = new DefaultComboBoxModel<>();
         lotniskoComboBoxModel2 = new DefaultComboBoxModel<>();
-    lotniskoP.setModel(lotniskoComboBoxModel1);
-    lotniskoK.setModel(lotniskoComboBoxModel2);
-    for(Lotnisko lotnisko: system_lotniczy.getLotniska())
-    {lotniskoComboBoxModel1.addElement(lotnisko);
+    for(Lotnisko lotnisko: system_lotniczy.getLotniska())    //używamy DefaultComboBoxModel do dodania elementów do modelu listy.
+    {lotniskoComboBoxModel1.addElement(lotnisko);            //Następnie przekazujemy ten model do konstruktora JList
         lotniskoComboBoxModel2.addElement(lotnisko);
     }
+        lotniskoP.setModel(lotniskoComboBoxModel1);
+        lotniskoK.setModel(lotniskoComboBoxModel2);
     dodajButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -49,14 +54,18 @@ public class DodajTrase extends ZarzadzanieTrasami{
     });
 
     }
-private void dodajTrase()
+
+    /**
+     * metoda ktora dodaje trase do listy Samolotow
+     */
+    private void dodajTrase()
 {
     String odleglosc = this.odleglosc.getText();
     String czasLotu = this.czasLotu.getText();
-    Lotnisko p = (Lotnisko) lotniskoP.getSelectedItem();
+    Lotnisko p = (Lotnisko) lotniskoP.getSelectedItem();  // pobieramy  wartosci z pol  JTextField oraz JComboBox
     Lotnisko k = (Lotnisko) lotniskoK.getSelectedItem();
 
-    if(odleglosc.isEmpty() || czasLotu.isEmpty())
+    if(odleglosc.isEmpty() || czasLotu.isEmpty())          //Sprawdzamy wyjatek czy nie sa puste oraz czy zawieraja odpowiednie typy
     {
         JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
     }
@@ -75,10 +84,13 @@ private void dodajTrase()
         }
     }
 }
-private void wroc()
+
+    /**
+     * Metoda ktora zamyka bierzace okno i wraca do poprzedniego
+     */
+    private void wroc()
 {
     dispose();
-    ZarzadzanieTrasami zarzadzanieTrasami = new ZarzadzanieTrasami(system_lotniczy);
-    zarzadzanieTrasami.setVisible(true);
+    new ZarzadzanieTrasami(system_lotniczy).setVisible(true);
 }
 }

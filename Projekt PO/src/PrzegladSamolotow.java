@@ -4,7 +4,9 @@ import java.awt.event.ActionListener;
 
 import Klasy.Samolot;
 import Klasy.System_lotniczy;
-
+/**
+ *klasa w ktore tworzone jest nowe okno z przegladaniemsamolotw
+ */
 public class PrzegladSamolotow extends MainInterface{
     private DefaultListModel<Samolot> samolotListModel;
     private JButton wrocButton;
@@ -12,7 +14,10 @@ public class PrzegladSamolotow extends MainInterface{
     private JList listaSamolotow;
     private JScrollPane Scroll;
     private JButton usunSamolotButton;
-
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public PrzegladSamolotow(System_lotniczy system_lotniczy)
     {
         super(system_lotniczy);
@@ -39,6 +44,10 @@ for(Samolot samolot: system_lotniczy.getSamoloty())
             }
         });
     }
+
+    /**
+     * metoda ktora usuwa samolot z listy samolotw
+     */
     private void usunSamolot()
     {
         Samolot s = (Samolot) listaSamolotow.getSelectedValue();
@@ -52,6 +61,10 @@ for(Samolot samolot: system_lotniczy.getSamoloty())
             JOptionPane.showMessageDialog(this,"Wybierz samolot, ktory chcesz usunac", "Błąd", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    /**
+     * metoda ktora zamyka bierzace okno
+     */
     private void wroc()
     {
         this.dispose();

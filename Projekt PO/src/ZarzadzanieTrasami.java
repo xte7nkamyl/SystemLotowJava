@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- *klasa w ktore tworzone jest nowe okno z dodawaniem rezerwacji
+ *klasa w ktore tworzone jest nowe okno z zarzadzaniem trasami
  */
 public class ZarzadzanieTrasami extends MainInterface{
     protected JList listaTras;
@@ -26,16 +26,15 @@ public class ZarzadzanieTrasami extends MainInterface{
     setLocationRelativeTo(null);
     setContentPane(zarzadzanieTrasami);
     setVisible(true);
-        trasaListModel = new DefaultListModel<>();
-        trasaListModel.removeAllElements();
+        trasaListModel = new DefaultListModel<>();   //używamy DefaultListModel do dodania elementów do modelu listy.
+        trasaListModel.removeAllElements();          //Następnie przekazujemy ten model do konstruktora Jlist
         for (Trasa trasa: system_lotniczy.getTrasy())
             trasaListModel.addElement(trasa);
         listaTras.setModel(trasaListModel);
     dodajTraseButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            DodajTrase dodajTrase = new DodajTrase(system_lotniczy);
-            dodajTrase.setVisible(true);
+            new DodajTrase(system_lotniczy).setVisible(true);
             dispose();
         }
     });
@@ -43,8 +42,7 @@ public class ZarzadzanieTrasami extends MainInterface{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                MainInterface mainInterface = new MainInterface(system_lotniczy);
-                mainInterface.setVisible(true);
+                new MainInterface(system_lotniczy).setVisible(true);
             }
         });
         usunTraseButton.addActionListener(new ActionListener() {
@@ -54,6 +52,10 @@ public class ZarzadzanieTrasami extends MainInterface{
             }
         });
     }
+
+    /**
+     * metoda ktora usuwa trase z listy tras
+     */
     private void usunTrase(){
         Trasa t = (Trasa) listaTras.getSelectedValue();
         if(t == null)

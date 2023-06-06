@@ -4,6 +4,9 @@ import Klasy.Trasa;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+/**
+ *
+ */
 
 /**
  *klasa w ktorej tworzone jest nowe okno z dodawaniem trasy
@@ -43,7 +46,6 @@ public class DodajTrase extends ZarzadzanieTrasami{
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajTrase();
-            wroc();
         }
     });
     anulujButton.addActionListener(new ActionListener() {

@@ -4,7 +4,9 @@ import Klasy.System_lotniczy;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *klasa w ktore tworzone jest nowe okno z dodawaniem rezerwacji
+ */
 public class ZarzadzanieRezerwacjami extends MainInterface{
     private JButton wrocButton;
     private JButton dodajRezerwacjeButton;
@@ -12,7 +14,10 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
     private JList listaRezerwacji;
     private JPanel zarzadzanieRezerwacjami;
     private DefaultListModel<Rezerwacja> rezerwacjaListModel;
-
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public ZarzadzanieRezerwacjami(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -45,12 +50,20 @@ public class ZarzadzanieRezerwacjami extends MainInterface{
             }
         });
     }
+
+    /**
+     * metoda otwiera kolejne okno z dodawaniem rezerwacji i zamyka bierzace
+     */
     private void dodawanieRezerwacji()
     {
         DodawanieRezerwacji dodawanieRezerwacji = new DodawanieRezerwacji(system_lotniczy);
         dodawanieRezerwacji.setVisible(true);
         dispose();
     }
+
+    /**
+     * metoda ktora usuwa rezerwacje z listy rezerwacji
+     */
     private void usunRezerwacje()
     {
         Rezerwacja r = (Rezerwacja) listaRezerwacji.getSelectedValue();

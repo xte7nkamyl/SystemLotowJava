@@ -29,7 +29,6 @@ public class DodawanieLotniska extends ZarzadzanieLotniskami{
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajLotnisko();
-            anuluj();
         }
     });
         anulujButton.addActionListener(new ActionListener() {

@@ -2,7 +2,9 @@ import Klasy.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *klasa w ktore tworzone jest nowe okno z zarzadzaniem lotniskami
+ */
 public class ZarzadzanieLotniskami extends MainInterface{
     private JList listaLotnisk;
     private JButton dodajLotnsikoButton;
@@ -10,6 +12,10 @@ public class ZarzadzanieLotniskami extends MainInterface{
     private JPanel zarzadzanieLotniskami;
     private JButton wrocButton;
     private DefaultListModel<Lotnisko> lotniskoListModel;
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public ZarzadzanieLotniskami(System_lotniczy system_lotniczy) {
         super(system_lotniczy);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -44,12 +50,20 @@ public class ZarzadzanieLotniskami extends MainInterface{
             }
         });
     }
+
+    /**
+     * metoda ktora tworzy nowe okno z dodawaniem lotniska i zamyka bierzace
+     */
     private void dodajLotniska()
     {
         DodawanieLotniska dodawanieLotniska = new DodawanieLotniska(system_lotniczy);
         dodawanieLotniska.setVisible(true);
         dispose();
     }
+
+    /**
+     * metoda ktora usuwa lotnisko z listy lotnisk
+     */
     private void usunLotnisko()
     {
         Lotnisko l = (Lotnisko) listaLotnisk.getSelectedValue();

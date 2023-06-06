@@ -33,7 +33,6 @@ public class PosrednikFirmy extends ZarzadzanieKlientami{
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajPosrednikaFirmy();
-            anuluj();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
@@ -43,7 +42,11 @@ public class PosrednikFirmy extends ZarzadzanieKlientami{
         }
     });
 }
-private void dodajPosrednikaFirmy()
+
+    /**
+     * metoda ktora dodaje posrednika firmy
+     */
+    private void dodajPosrednikaFirmy()
 {
     String imie = this.imie.getText();
     String nazwisko = this.nazwisko.getText();

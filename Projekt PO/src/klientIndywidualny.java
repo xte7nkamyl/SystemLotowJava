@@ -31,7 +31,6 @@ public klientIndywidualny(System_lotniczy system_lotniczy) {
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajKlientaIndywidualengo();
-            anuluj();
         }
     });
     anulujButton.addActionListener(new ActionListener() {

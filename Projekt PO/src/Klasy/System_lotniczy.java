@@ -175,7 +175,7 @@ public class System_lotniczy  {
             }
         }
     }*/
-    public void generatorLotowDlatrasy(Trasa trasa,LocalDateTime dataOdlotu,int czestotliwosc) {
+    /*public void generatorLotowDlatrasy(Trasa trasa,LocalDateTime dataOdlotu,int czestotliwosc) {
         LocalDateTime dataPrzylotu = dataOdlotu.plusMinutes(trasa.getCzasLotu());
         {
             for (Samolot samolot : samoloty) {
@@ -198,6 +198,43 @@ public class System_lotniczy  {
 
             }//tutaj to jest to samo co ponizej tylko doszedlem do wniosku ze ten zakres czasu nie jest potrzebny
     }
+    }
+    */
+
+    public void generatorLotowDlatrasy(Trasa trasa,LocalDateTime dataOdlotu,int czestotliwosc) {
+        LocalDateTime dataPrzylotu = dataOdlotu.plusMinutes(trasa.getCzasLotu());
+        {
+            for (Samolot samolot : samoloty) {
+                if (czestotliwosc <= 1) {
+                    if (samolot.getZasieg() >= trasa.getOdleglosc()) {
+                        Lot lot1 = new Lot(samolot, trasa, dataOdlotu, dataPrzylotu);
+                        loty.add(lot1);
+                        dataOdlotu = dataOdlotu.plusDays(14);
+                        dataPrzylotu = dataOdlotu.plusDays(14);
+                        Lot lot2 = new Lot(samolot, trasa, dataOdlotu, dataPrzylotu);
+                        loty.add(lot2);
+                    }
+                    if(czestotliwosc !=2){
+
+                    }
+                }
+                if (czestotliwosc <= 2) {
+                    if (samolot.getZasieg() >= trasa.getOdleglosc()) {
+
+                        dataOdlotu.minusDays(7);
+                        dataPrzylotu.minusDays(7);
+                        Lot lot3 = new Lot(samolot, trasa, dataOdlotu, dataPrzylotu);
+                        loty.add(lot3);
+                        dataOdlotu.plusDays(14);
+                        dataPrzylotu.plusDays(14);
+                        Lot lot4 = new Lot(samolot, trasa, dataOdlotu, dataPrzylotu);
+                        loty.add(lot4);
+                        break;
+                    }
+                }
+
+            }//tutaj to jest to samo co ponizej tylko doszedlem do wniosku ze ten zakres czasu nie jest potrzebny
+        }
     }
 /*public void generatorLotowDlatrasy(Trasa trasa,LocalDate dataOdlotu,LocalDate DataDolotu,int czestotliwosc) {
         Random random = new Random();

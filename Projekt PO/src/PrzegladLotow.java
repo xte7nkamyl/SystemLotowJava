@@ -6,7 +6,9 @@ import Klasy.System_lotniczy;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *klasa w ktore tworzone jest nowe okno z Przeglodem Lotow
+ */
 public class PrzegladLotow extends GeneratorLotow{
     private JList listaLotow;
     private JComboBox listaKlientow;
@@ -16,6 +18,10 @@ public class PrzegladLotow extends GeneratorLotow{
     private JButton usunLotButton;
     private DefaultListModel<Lot> lotListModel;
     private DefaultComboBoxModel<Klient> klientListModel;
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
 public PrzegladLotow(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -51,7 +57,11 @@ public PrzegladLotow(System_lotniczy system_lotniczy) {
         }
     });
 }
-private void dodajRezerwacje()
+
+    /**
+     * metoda ktora dodaje rezerwacje na podstawie wygenerowanego lotu
+     */
+    private void dodajRezerwacje()
 {
 Lot l = (Lot) listaLotow.getSelectedValue();
 Klient k = (Klient)  listaKlientow.getSelectedItem();
@@ -65,7 +75,11 @@ else{
 }
 
 }
-private void usunLot()
+
+    /**
+     * metoda ktora usuwa lot z listy lotow
+     */
+    private void usunLot()
 {
     Lot l = (Lot) listaLotow.getSelectedValue();
     if(l != null)
@@ -79,7 +93,11 @@ private void usunLot()
         JOptionPane.showMessageDialog(this,"Wybierz lot, ktory chcesz usunac!", "Błąd", JOptionPane.ERROR_MESSAGE);
     }
 }
-private void wroc()
+
+    /**
+     * metoda ktora zamyka bierzace okno i wraca do poprzedniego
+     */
+    private void wroc()
 {
     dispose();
     GeneratorLotow generatorLotow = new GeneratorLotow(system_lotniczy);

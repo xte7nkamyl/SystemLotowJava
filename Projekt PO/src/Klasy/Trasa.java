@@ -1,7 +1,9 @@
 package Klasy;
 
 import java.io.Serializable;
-
+/**
+ * klasa w ktorej tworzony jest obiekt trasy
+ */
 public class Trasa implements Serializable {
     private int odleglosc;
     private Lotnisko poczatek;

@@ -39,9 +39,9 @@ public class GeneratorLotow extends MainInterface{
         SpinnerNumberModel numberModel = new SpinnerNumberModel(1,1,2,1);
         czestotliwosc.setModel(numberModel);
         trasaListModel = new DefaultComboBoxModel<>();
-        listaTras.setModel(trasaListModel);
         for (Trasa trasa: system_lotniczy.getTrasy())
             trasaListModel.addElement(trasa);
+        listaTras.setModel(trasaListModel);
         wrocButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +75,7 @@ public class GeneratorLotow extends MainInterface{
         Date selectedDate1 = (Date) dataModel.getValue();             //następnie pobieramy wartość z modelu spinnera za pomocą metody getValue() która zwraca obiekt Date.
         LocalDateTime localDateTime = LocalDateTime.ofInstant(selectedDate1.toInstant(), ZoneId.systemDefault()); //Na koniec konwertujemy wartość daty do obiektu LocalDateTime, korzystając z metody LocalDateTime.ofInstant()
         int czestotliwosc = (Integer) this.czestotliwosc.getValue();
-        system_lotniczy.generatorLotowDlatrasy(t,localDateTime,czestotliwosc);
+        system_lotniczy.generatorLotow(t,localDateTime,czestotliwosc);
         JOptionPane.showMessageDialog(this,"Lot zostal wygenerowany!");
     }
 }

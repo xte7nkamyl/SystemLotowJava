@@ -1,7 +1,8 @@
 package Klasy;
-
 import java.io.Serializable;
-
+/**
+ * klasa w ktorej tworzony jest obiekt samolotu typu klasa ekonomiczna
+ */
 public class Klasa_ekonomiczna extends Samolot implements Serializable {
 
     /**

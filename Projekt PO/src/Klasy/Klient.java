@@ -3,6 +3,9 @@ package Klasy;
 
 import java.io.Serializable;
 
+/**
+ * klasa w ktorej tworzony jest obiekt klienta
+ */
 public class Klient implements Serializable {
 
     protected String imie;

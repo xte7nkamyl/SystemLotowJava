@@ -53,7 +53,6 @@ public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
         @Override
         public void actionPerformed(ActionEvent e) {
             dodajRezerwacje();
-            anuluj();
         }
     });
     anulujButton.addActionListener(new ActionListener() {
@@ -74,10 +73,14 @@ public void dodajRezerwacje()
     SpinnerDateModel dataModel = (SpinnerDateModel) data.getModel();   //spinner jest referencją do JSpinner. Pobieramy model spinnera za pomocą metody getModel() i rzutujemy go na SpinnerDateModel
     Date selectedDate = (Date) dataModel.getValue();                   //następnie pobieramy wartość z modelu spinnera za pomocą metody getValue() która zwraca obiekt Date.
     LocalDateTime localDateTime = LocalDateTime.ofInstant(selectedDate.toInstant(), ZoneId.systemDefault()); //Na koniec konwertujemy wartość daty do obiektu LocalDateTime, korzystając z metody LocalDateTime.ofInstant().
-    system_lotniczy.dodajRezerwacje(new Rezerwacja(k,t,localDateTime,s));
+    if(s.getZasieg() >= t.getOdleglosc())
+    {system_lotniczy.dodajRezerwacje(new Rezerwacja(k,t,localDateTime,s));
+    system_lotniczy.usunSamolot(s);}
+    else {
+        JOptionPane.showMessageDialog(this,"Zasieg samolotu jest mniejszy niz odleglosc trasy", "Błąd", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
     JOptionPane.showMessageDialog(this,"Rezerwacja zostala dodana!");
-    dispose();
-
 }
     /**
      * Metoda ktora zamyka bierzace okno i wraca do poprzedniego

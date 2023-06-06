@@ -3,7 +3,9 @@ package Klasy;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * klasa w ktorej tworzony jest zapis i odczyt z pliku
+ */
 public class ZapisOdczytSystemu implements Serializable {
 
 

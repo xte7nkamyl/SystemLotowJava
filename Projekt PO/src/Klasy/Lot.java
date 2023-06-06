@@ -4,15 +4,15 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-
+/**
+ * klasa w ktorej tworzony jest obiekt lot
+ */
 public class Lot implements Serializable {
 
     private Samolot samolot;
     private Trasa trasa;
     private LocalDateTime czaswylotu;
     private LocalDateTime czasdolotu;
-    private static int maxindex;
-    private int index;
 
     /**
      * Konstruktor z czterema parametrami. Dwa z nich to obiekty klas samolot i trasa (ktore sa w kompozycji z klasa lot) oraz zmienne czas wylotu i czas dolotu typu LocalDateTime zaczerpniete z biblioteki.

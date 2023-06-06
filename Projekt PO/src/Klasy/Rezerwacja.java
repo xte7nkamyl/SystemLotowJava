@@ -3,7 +3,9 @@ package Klasy;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+/**
+ * klasa w ktorej tworzony jest obiekt rezerwacji
+ */
 public class Rezerwacja implements Serializable {
     private Klient klient;
     private Trasa trasa;

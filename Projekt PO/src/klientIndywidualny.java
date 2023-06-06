@@ -66,7 +66,6 @@ private void dodajKlientaIndywidualengo()
             int peselInt = Integer.parseInt(pesel);
             system_lotniczy.dodajKlient(new Klient_indywidualny(imie,nazwisko,peselInt));
             JOptionPane.showMessageDialog(this,"Klient zostal dodany!");
-            dispose();
         }
         catch (NumberFormatException e)
         {

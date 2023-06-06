@@ -1,5 +1,7 @@
 package Klasy;
-
+/**
+ * klasa w ktorej tworzony jest obiekt posrednik firmy
+ */
 public class Posrednik_firmy extends Klient {
 
     private String nazwa_firmy;

@@ -1,7 +1,9 @@
 package Klasy;
 
 import java.io.Serializable;
-
+/**
+ * klasa w ktorej tworzony jest obiekt samolotu
+ */
 public class Samolot implements Serializable {
     private int iloscMiejsc;
     private int zasieg;

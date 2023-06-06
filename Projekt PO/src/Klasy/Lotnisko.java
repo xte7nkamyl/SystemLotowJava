@@ -1,7 +1,9 @@
 package Klasy;
 
 import java.io.Serializable;
-
+/**
+ * klasa w ktorej tworzony jest obiekt lotnisko
+ */
 public class Lotnisko implements Serializable {
     private String nazwa;
     private String miasto;

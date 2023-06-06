@@ -57,7 +57,6 @@ public PrzegladLotow(System_lotniczy system_lotniczy) {
         }
     });
 }
-
     /**
      * metoda ktora dodaje rezerwacje na podstawie wygenerowanego lotu
      */
@@ -68,6 +67,7 @@ Klient k = (Klient)  listaKlientow.getSelectedItem();
 if(l != null)
 {
     system_lotniczy.dodajRezerwacje(new Rezerwacja(k,l.getTrasa(),l.getCzasWylotu(),l.getSamolot()));
+    system_lotniczy.usunSamolot(l.getSamolot());
     JOptionPane.showMessageDialog(this,"Rezerwacja zostala dodana!");
 }
 else{
@@ -75,7 +75,6 @@ else{
 }
 
 }
-
     /**
      * metoda ktora usuwa lot z listy lotow
      */

@@ -1,5 +1,7 @@
 package Klasy;
-
+/**
+ * klasa w ktorej tworzony jest obiekt klienta indywidualnego
+ */
 public class Klient_indywidualny extends Klient {
     /**
      * Konstruktor w ktorym znajduje sie odwolanie do pol klasy nadrzednej. Nie zostaly dodane dodatkowe zmienne

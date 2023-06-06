@@ -3,7 +3,9 @@ import Klasy.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *klasa w ktorej tworzone jest okno menu
+ */
 public class MainInterface extends JFrame {
     protected System_lotniczy system_lotniczy;
     private JButton wyjdzButton;
@@ -14,7 +16,10 @@ public class MainInterface extends JFrame {
     private JButton zarzadzajSamolotamiButton;
     private JButton zarzadzajKlientamiButton;
     private JButton zarzadzanieRezerwacjamiButton;
-
+    /**
+     * Konstruktor ktory tworzy okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public MainInterface(System_lotniczy system_lotniczy)
     {
         this.system_lotniczy = system_lotniczy;
@@ -23,8 +28,6 @@ public class MainInterface extends JFrame {
         setLocationRelativeTo(null);
         setContentPane(mainPanel);
         setVisible(true);
-
-
         zarzadzajSamolotamiButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,35 +72,53 @@ public class MainInterface extends JFrame {
             }
         });
     }
+    /**
+     * Metoda ktora otwiera kolejne okno i zamyka bierzace
+     */
 private void zarzadzajRezerwacjami()
 {
     ZarzadzanieRezerwacjami zarzadzanieRezerwacjami = new ZarzadzanieRezerwacjami(system_lotniczy);
     zarzadzanieRezerwacjami.setVisible(true);
     dispose();
 }
-    protected void zarzadzajTrasami()
+    /**
+     * Metoda ktora otwiera kolejne okno i zamyka bierzace
+     */
+    private void zarzadzajTrasami()
     {
         ZarzadzanieTrasami zarzadzanieTrasami = new ZarzadzanieTrasami(system_lotniczy);
         zarzadzanieTrasami.setVisible(true);
         dispose();
     }
+    /**
+     * Metoda ktora otwiera kolejne okno i zamyka bierzace
+     */
     private void zarzadzajLotniskami()
     {
         ZarzadzanieLotniskami zarzadzanieLotniskami = new ZarzadzanieLotniskami(system_lotniczy);
         zarzadzanieLotniskami.setVisible(true);
         dispose();
     }
+    /**
+     * Metoda ktora otwiera kolejne okno i zamyka bierzace
+     */
     private void zarzadzajKlientami()
     {
         ZarzadzanieKlientami zarzadzanieKlientami = new ZarzadzanieKlientami(system_lotniczy);
         zarzadzanieKlientami.setVisible(true);
         dispose();
     }
+    /**
+     * Metoda ktora otwiera kolejne okno i zamyka bierzace
+     */
     private void zarzadzajSamolotami()
     {
         SamolotyMenu samolotyMenu = new SamolotyMenu(system_lotniczy);
         samolotyMenu.setVisible(true);
     }
+    /**
+     * Metoda ktora otwiera kolejne okno i zamyka bierzace
+     */
     private void generatorLotow()
     {
         GeneratorLotow generatorLotow = new GeneratorLotow(system_lotniczy);

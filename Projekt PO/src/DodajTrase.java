@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *klasa w ktore tworzone jest nowe okno z dodawaniem trasy
+ *klasa w ktorej tworzone jest nowe okno z dodawaniem trasy
  */
 public class DodajTrase extends ZarzadzanieTrasami{
     private JTextField odleglosc;
@@ -34,7 +34,7 @@ public class DodajTrase extends ZarzadzanieTrasami{
     lotniskoComboBoxModel1 = new DefaultComboBoxModel<>();
         lotniskoComboBoxModel2 = new DefaultComboBoxModel<>();
     for(Lotnisko lotnisko: system_lotniczy.getLotniska())    //używamy DefaultComboBoxModel do dodania elementów do modelu listy.
-    {lotniskoComboBoxModel1.addElement(lotnisko);            //Następnie przekazujemy ten model do konstruktora JList
+    {lotniskoComboBoxModel1.addElement(lotnisko);            //Następnie przekazujemy ten model do konstruktora JComboBox
         lotniskoComboBoxModel2.addElement(lotnisko);
     }
         lotniskoP.setModel(lotniskoComboBoxModel1);
@@ -56,7 +56,7 @@ public class DodajTrase extends ZarzadzanieTrasami{
     }
 
     /**
-     * metoda ktora dodaje trase do listy Samolotow
+     * metoda ktora dodaje trase do listy z trasami
      */
     private void dodajTrase()
 {

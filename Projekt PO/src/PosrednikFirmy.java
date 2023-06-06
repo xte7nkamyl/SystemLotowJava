@@ -5,7 +5,9 @@ import Klasy.System_lotniczy;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *klasa w ktorej tworzone jest nowe okno z dodawaniem posrednika firmy
+ */
 public class PosrednikFirmy extends ZarzadzanieKlientami{
     private JTextField imie;
     private JTextField nazwisko;
@@ -15,7 +17,10 @@ public class PosrednikFirmy extends ZarzadzanieKlientami{
     private JButton dodajButton;
     private JButton anulujButton;
     private JPanel dodawaniePosrednikaFirmy;
-
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public PosrednikFirmy(System_lotniczy system_lotniczy)
 {
     super(system_lotniczy);
@@ -44,8 +49,8 @@ private void dodajPosrednikaFirmy()
     String nazwisko = this.nazwisko.getText();
     String pesel = this.pesel.getText();
     String nazwaFirmy = this.NazwaFirmy.getText();
-    String krs = this.KRS.getText();
-    if(imie.isEmpty() || nazwisko.isEmpty() || pesel.isEmpty() || nazwaFirmy.isEmpty() || krs.isEmpty())
+    String krs = this.KRS.getText();                           // pobieramy  wartosci z pol  JTextField
+    if(imie.isEmpty() || nazwisko.isEmpty() || pesel.isEmpty() || nazwaFirmy.isEmpty() || krs.isEmpty()) ////Sprawdzamy wyjatek czy nie sa puste oraz czy zawieraja odpowiednie typy
     {
         JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
     }
@@ -76,6 +81,9 @@ private void dodajPosrednikaFirmy()
         }
     }
 }
+    /**
+     * Metoda ktora zamyka bierzace okno i wraca do poprzedniego
+     */
     private void anuluj()
     {
         dispose();

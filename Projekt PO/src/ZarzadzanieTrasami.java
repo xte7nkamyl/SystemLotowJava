@@ -4,7 +4,9 @@ import Klasy.Trasa;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *klasa w ktore tworzone jest nowe okno z dodawaniem rezerwacji
+ */
 public class ZarzadzanieTrasami extends MainInterface{
     protected JList listaTras;
     private JButton usunTraseButton;
@@ -13,6 +15,10 @@ public class ZarzadzanieTrasami extends MainInterface{
     private JPanel zarzadzanieTrasami;
     protected DefaultListModel<Trasa> trasaListModel;
 
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
     public ZarzadzanieTrasami(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);

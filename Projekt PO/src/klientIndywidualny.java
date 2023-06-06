@@ -6,7 +6,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.invoke.StringConcatException;
-
+/**
+ *klasa w ktorej tworzone jest nowe okno z dodawaniem klienta indiwidualnego
+ */
 public class klientIndywidualny extends ZarzadzanieKlientami{
     private JPanel dodawanieKlientow;
     private JTextField imie;
@@ -14,6 +16,10 @@ public class klientIndywidualny extends ZarzadzanieKlientami{
     private JTextField nazwisko;
     private JButton dodajButton;
     private JButton anulujButton;
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
 public klientIndywidualny(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,12 +41,15 @@ public klientIndywidualny(System_lotniczy system_lotniczy) {
         }
     });
 }
+    /**
+     * metoda ktora dodaje klienta indywidualnego do listy z klientami
+     */
 private void dodajKlientaIndywidualengo()
 {
     String imie = this.imie.getText();
     String nazwisko = this.nazwisko.getText();
-    String pesel = this.pesel.getText();
-    if(imie.isEmpty() || nazwisko.isEmpty() || pesel.isEmpty())
+    String pesel = this.pesel.getText();               // pobieramy  wartosci z pol  JTextField
+    if(imie.isEmpty() || nazwisko.isEmpty() || pesel.isEmpty()) // //Sprawdzamy wyjatek czy nie sa puste oraz czy zawieraja odpowiednie typy
     {
         JOptionPane.showMessageDialog(this,"Uzupelnij pola", "Błąd", JOptionPane.ERROR_MESSAGE);
     }
@@ -66,10 +75,12 @@ private void dodajKlientaIndywidualengo()
         }
     }
 }
+    /**
+     * Metoda ktora zamyka bierzace okno i wraca do poprzedniego
+     */
 private void anuluj()
 {
     dispose();
-    ZarzadzanieKlientami zarzadzanieKlientami = new ZarzadzanieKlientami(system_lotniczy);
-    zarzadzanieKlientami.setVisible(true);
+    new ZarzadzanieKlientami(system_lotniczy).setVisible(true);
 }
 }

@@ -8,7 +8,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ *klasa w ktore tworzone jest nowe okno z dodawaniem rezerwacji
+ */
 public class DodawanieRezerwacji extends ZarzadzanieRezerwacjami{
     private JComboBox listaKlientow;
     private JComboBox listaTras;
@@ -20,6 +22,10 @@ public class DodawanieRezerwacji extends ZarzadzanieRezerwacjami{
     private DefaultComboBoxModel<Klient> klientComboBoxModel;
     private DefaultComboBoxModel<Trasa> trasaComboBoxModel;
     private DefaultComboBoxModel<Samolot> samolotDefaultComboBoxModel;
+    /**
+     * Konstruktor ktory tworzy nowe okno, ustawia jego domyslne wartosci i rozmiary dodaje funkcjonalnosci pod odpowiednie przyciski
+     * @param system_lotniczy umozliwia uzyskanie dostepu do metod z klasy System_lotniczy
+     */
 public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -29,8 +35,8 @@ public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
     setLocationRelativeTo(null);
     klientComboBoxModel = new DefaultComboBoxModel<>();
     trasaComboBoxModel = new DefaultComboBoxModel<>();
-    samolotDefaultComboBoxModel = new DefaultComboBoxModel<>();
-    listaKlientow.setModel(klientComboBoxModel);
+    samolotDefaultComboBoxModel = new DefaultComboBoxModel<>();          //używamy DefaultComboBoxModel do dodania elementów do modelu listy.
+    listaKlientow.setModel(klientComboBoxModel);                         //Następnie przekazujemy ten model do konstruktora JComboBox
     listaTras.setModel(trasaComboBoxModel);
     listaSamolotow.setModel(samolotDefaultComboBoxModel);
     for(Klient klient: system_lotniczy.getKlienci())
@@ -39,8 +45,8 @@ public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
         trasaComboBoxModel.addElement(trasa);
     for(Samolot samolot : system_lotniczy.getSamoloty())
         samolotDefaultComboBoxModel.addElement(samolot);
-    SpinnerDateModel dateModel = new SpinnerDateModel();
-    Calendar calendar = Calendar.getInstance();
+    SpinnerDateModel dateModel = new SpinnerDateModel();                 // uzywamy SpinnerDateModel w ktorym umieszczamy model kalendarza
+    Calendar calendar = Calendar.getInstance();                          // nastepnie caly model do konstruktora Jspinner
     dateModel.setValue(calendar.getTime());
     data.setModel(dateModel);
     dodajButton.addActionListener(new ActionListener() {
@@ -57,27 +63,28 @@ public DodawanieRezerwacji(System_lotniczy system_lotniczy) {
         }
     });
 }
+    /**
+     * metoda ktora dodaje rezerwacje do listy z rezerwacjami
+     */
 public void dodajRezerwacje()
 {
     Klient k = (Klient) listaKlientow.getSelectedItem();
     Trasa t = (Trasa) listaTras.getSelectedItem();
     Samolot s = (Samolot) listaSamolotow.getSelectedItem();
-    SpinnerDateModel dataModel = (SpinnerDateModel) data.getModel();
-    Date selectedDate = (Date) dataModel.getValue();
-    LocalDateTime localDateTime = LocalDateTime.ofInstant(selectedDate.toInstant(), ZoneId.systemDefault());
-    //SpinnerDateModel spinnerModel = (SpinnerDateModel) data.getModel();
-    //Date selectedDate = spinnerModel.getDate();
-    //Instant instant = selectedDate.toInstant();
-    //LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+    SpinnerDateModel dataModel = (SpinnerDateModel) data.getModel();   //spinner jest referencją do JSpinner. Pobieramy model spinnera za pomocą metody getModel() i rzutujemy go na SpinnerDateModel
+    Date selectedDate = (Date) dataModel.getValue();                   //następnie pobieramy wartość z modelu spinnera za pomocą metody getValue() która zwraca obiekt Date.
+    LocalDateTime localDateTime = LocalDateTime.ofInstant(selectedDate.toInstant(), ZoneId.systemDefault()); //Na koniec konwertujemy wartość daty do obiektu LocalDateTime, korzystając z metody LocalDateTime.ofInstant().
     system_lotniczy.dodajRezerwacje(new Rezerwacja(k,t,localDateTime,s));
     JOptionPane.showMessageDialog(this,"Rezerwacja zostala dodana!");
     dispose();
 
 }
+    /**
+     * Metoda ktora zamyka bierzace okno i wraca do poprzedniego
+     */
 private void anuluj()
 {
     dispose();
-    ZarzadzanieRezerwacjami zarzadzanieRezerwacjami = new ZarzadzanieRezerwacjami(system_lotniczy);
-    zarzadzanieRezerwacjami.setVisible(true);
+    new ZarzadzanieRezerwacjami(system_lotniczy).setVisible(true);
 }
 }

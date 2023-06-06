@@ -13,97 +13,199 @@ public class System_lotniczy  {
     private List<Samolot> samoloty = new ArrayList();
     private List<Rezerwacja> rezerwacje = new ArrayList();
     private List<Lot> loty = new ArrayList<>();
+
+
+    /**
+     * Metoda dodajaca klienta do listy.
+     * @param k
+     */
     public void dodajKlient(Klient k) {
         klienci.add(k);
     }
 
+    /**
+     * Metoda usuwajaca klienta do listy.
+     * @param k
+     */
     public void usunKlient(Klient k) {
         klienci.remove(k);
     }
 
+    /**
+     * Metoda pobierajaca liste klientow.
+     * @return
+     */
     public List<Klient> getKlienci() {
         return klienci;
     }
 
+    /**
+     * Metoda ustawiajaca klienta w liscie.
+     * @param klienci
+     */
     public void setKlienci(List<Klient> klienci) {
         this.klienci = klienci;
     }
 
+    /**
+     * Metoda dodajaca trase do listy.
+     * @param t
+     */
     public void dodajTrasa(Trasa t) {
         trasy.add(t);
     }
 
+    /**
+     * Metoda usuwajaca trase z listy.
+     * @param t
+     */
     public void usunTrasa(Trasa t) {
         trasy.remove(t);
     }
 
+    /**
+     * Metoda pobierajaca liste tras.
+     * @return
+     */
     public List<Trasa> getTrasy() {
         return trasy;
     }
 
+    /**
+     * Metoda ustawiajaca trase w liscie.
+     * @param trasy
+     */
     public void setTrasy(List<Trasa> trasy) {
         this.trasy = trasy;
     }
 
+    /**
+     * Metoda dodajaca lotnisko do listy.
+     * @param l
+     */
     public void dodajLotnisko(Lotnisko l) {
         lotniska.add(l);
     }
 
+    /**
+     * Metoda usuwajaca lotnisko z listy.
+     * @param l
+     */
     public void usunLotnisko(Lotnisko l) {
         lotniska.remove(l);
     }
 
+    /**
+     * Metoda pobierajaca liste lotnisk.
+     * @return
+     */
     public List<Lotnisko> getLotniska() {
         return lotniska;
     }
 
+    /**
+     * Metoda ustawiajaca lostnisko w liscie.
+     * @param lotniska
+     */
     public void setLotniska(List<Lotnisko> lotniska) {
         this.lotniska = lotniska;
     }
 
+    /**
+     * Metoda dodajaca samolot do listy.
+     * @param s
+     */
     public void dodajSamolot(Samolot s) {
         samoloty.add(s);
     }
 
+    /**
+     * Metoda usuwajaca samolot z listy.
+     * @param s
+     */
     public void usunSamolot(Samolot s) {
         samoloty.remove(s);
     }
 
+    /**
+     * Metoda pobierajaca liste samolotow.
+     * @return
+     */
     public List<Samolot> getSamoloty() {
         return samoloty;
     }
 
+    /**
+     * Metoda ustawiajaca samolot w liscie.
+     * @param samoloty
+     */
     public void setSamoloty(List<Samolot> samoloty) {
         this.samoloty = samoloty;
     }
 
+    /**
+     * Metoda dodajaca rezerwacje do listy.
+     * @param r
+     */
     public void dodajRezerwacje(Rezerwacja r) {
         rezerwacje.add(r);
     }
 
+    /**
+     * Metoda usuwajaca rezerwacje z listy.
+     * @param r
+     */
     public void usunRezerwacje(Rezerwacja r) {
         rezerwacje.remove(r);
     }
 
+    /**
+     * Metoda wyswietlajaca liste rezerwacji.
+     * @return
+     */
     public List<Rezerwacja> getRezerwacje() {
         return rezerwacje;
     }
 
+    /**
+     * Metoda ustawiajaca rezerwacje w liscie.
+     * @param rezerwacje
+     */
     public void setRezerwacje(List<Rezerwacja> rezerwacje) {
         this.rezerwacje = rezerwacje;
     }
+
+    /**
+     * Metoda dodajaca lot do listy.
+     * @param l
+     */
     public void dodajLot(Lot l)
     {
         loty.add(l);
     }
+
+    /**
+     * Metoda usuwajaca lot z listy.
+     * @param l
+     */
     public void usunLot(Lot l)
     {
         loty.remove(l);
     }
+
+    /**
+     * Metoda pobierajaca liste lotow.
+     * @return
+     */
     public List<Lot> getLoty()
     {
         return loty;
     }
+
+    /**
+     * Metoda ustawiajaca lot w liscie.
+     * @param loty
+     */
     public void setLoty(List<Lot> loty)
     {
         this.loty = loty;

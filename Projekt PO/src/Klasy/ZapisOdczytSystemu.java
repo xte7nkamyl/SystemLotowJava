@@ -6,6 +6,12 @@ import java.util.List;
 
 public class ZapisOdczytSystemu implements Serializable {
 
+
+    /**
+     * Metoda sluzaca do zapisu pliku.
+     * @param system_lotniczy
+     * @param nazwaPliku
+     */
         public static void zapisz(System_lotniczy system_lotniczy, String nazwaPliku) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(nazwaPliku);
@@ -30,7 +36,12 @@ public class ZapisOdczytSystemu implements Serializable {
             }
         }
 
-        public static void odczytaj(System_lotniczy system_lotniczy, String nazwaPliku) {
+    /**
+     * Metoda sluzaca do odczytu pliku.
+     * @param system_lotniczy
+     * @param nazwaPliku
+     */
+    public static void odczytaj(System_lotniczy system_lotniczy, String nazwaPliku) {
             try {
                 FileInputStream fileIn = new FileInputStream(nazwaPliku);
                 ObjectInputStream in = new ObjectInputStream(fileIn);

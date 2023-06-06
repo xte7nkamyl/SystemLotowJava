@@ -8,6 +8,13 @@ public class Trasa implements Serializable {
     private Lotnisko koniec;
     private int czasLotu;
 
+    /**
+     * Konstruktor z czterema parametrami. Dwa z nich sa typu lotnisko a dwa nastepne typu int.
+     * @param odleglosc
+     * @param poczatek
+     * @param koniec
+     * @param czasLotu
+     */
     public Trasa(int odleglosc, Lotnisko poczatek, Lotnisko koniec, int czasLotu) {
         this.odleglosc = odleglosc;
         this.poczatek = poczatek;
@@ -15,10 +22,20 @@ public class Trasa implements Serializable {
         this.czasLotu = czasLotu;
     }
 
+
+    /**
+     * Metoda pobierajaca czas wylotu.
+     * @return
+     */
     public int getCzasLotu() {
         return czasLotu;
     }
 
+    /**
+     * Metoda ustawiajaca czas wylotu.
+     * @param czasLotu
+     * @return
+     */
     public int setCzasLotu(int czasLotu) {
         if (czasLotu > 0)
             this.czasLotu = czasLotu;
@@ -28,10 +45,19 @@ public class Trasa implements Serializable {
         return this.czasLotu;
     }
 
+    /**
+     * Metoda pobierajaca odleglosc.
+     * @return
+     */
     public int getOdleglosc() {
         return odleglosc;
     }
 
+    /**
+     * Metoda ustawiajaca odleglosc.
+     * @param odleglosc
+     * @return
+     */
     public int setOdleglosc(int odleglosc) {
         if (odleglosc > 0)
             this.odleglosc = odleglosc;
@@ -42,6 +68,10 @@ public class Trasa implements Serializable {
 
     }
 
+    /**
+     * Metoda nadpisujaca ktora wyswietla dane trasy - odleglosc, miejsce poczatkowe i koncowe oraz czas trwania lotu.
+     * @return
+     */
     @Override
     public String toString() {
         return "Odległość - " + odleglosc + " Miejsce początkowe - " + poczatek + " Miejsce końcowe - " + koniec + " Czas lotu - " + czasLotu + "\n";

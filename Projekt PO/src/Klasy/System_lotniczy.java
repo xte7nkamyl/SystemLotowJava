@@ -1,5 +1,4 @@
 package Klasy;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -176,14 +175,6 @@ public class System_lotniczy  {
         this.rezerwacje = rezerwacje;
     }
 
-    /**
-     * Metoda dodajaca lot do listy.
-     * @param l
-     */
-    public void dodajLot(Lot l)
-    {
-        loty.add(l);
-    }
 
     /**
      * Metoda usuwajaca lot z listy.

@@ -28,7 +28,7 @@ public class GeneratorLotow extends MainInterface{
     public GeneratorLotow(System_lotniczy system_lotniczy) {
         super(system_lotniczy);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(1300,600);
+        setSize(1350,600);
         setLocationRelativeTo(null);
         setContentPane(generatorLotow);
         setVisible(true);

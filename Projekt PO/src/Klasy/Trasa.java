@@ -1,5 +1,4 @@
 package Klasy;
-
 import java.io.Serializable;
 /**
  * klasa w ktorej tworzony jest obiekt trasy
@@ -24,7 +23,6 @@ public class Trasa implements Serializable {
         this.czasLotu = czasLotu;
     }
 
-
     /**
      * Metoda pobierajaca czas wylotu.
      * @return
@@ -33,19 +31,6 @@ public class Trasa implements Serializable {
         return czasLotu;
     }
 
-    /**
-     * Metoda ustawiajaca czas wylotu.
-     * @param czasLotu
-     * @return
-     */
-    public int setCzasLotu(int czasLotu) {
-        if (czasLotu > 0)
-            this.czasLotu = czasLotu;
-        else
-            this.czasLotu = 0;
-
-        return this.czasLotu;
-    }
 
     /**
      * Metoda pobierajaca odleglosc.
@@ -55,20 +40,6 @@ public class Trasa implements Serializable {
         return odleglosc;
     }
 
-    /**
-     * Metoda ustawiajaca odleglosc.
-     * @param odleglosc
-     * @return
-     */
-    public int setOdleglosc(int odleglosc) {
-        if (odleglosc > 0)
-            this.odleglosc = odleglosc;
-        else
-            this.odleglosc = 0;
-
-        return this.odleglosc;
-
-    }
 
     /**
      * Metoda nadpisujaca ktora wyswietla dane trasy - odleglosc, miejsce poczatkowe i koncowe oraz czas trwania lotu.

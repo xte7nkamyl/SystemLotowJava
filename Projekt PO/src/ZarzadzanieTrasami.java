@@ -22,7 +22,7 @@ public class ZarzadzanieTrasami extends MainInterface{
     public ZarzadzanieTrasami(System_lotniczy system_lotniczy) {
     super(system_lotniczy);
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    setSize(800,500);
+    setSize(815,500);
     setLocationRelativeTo(null);
     setContentPane(zarzadzanieTrasami);
     setVisible(true);

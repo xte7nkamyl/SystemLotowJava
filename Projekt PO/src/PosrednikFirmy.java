@@ -76,6 +76,7 @@ public class PosrednikFirmy extends ZarzadzanieKlientami{
             int krsInt = Integer.parseInt(krs);
             system_lotniczy.dodajKlient(new Posrednik_firmy(imie,nazwisko,peselInt,nazwaFirmy,krsInt));
             JOptionPane.showMessageDialog(this,"Klient zostal dodany");
+            anuluj();
         }
         catch (NumberFormatException e)
         {

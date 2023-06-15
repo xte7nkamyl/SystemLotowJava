@@ -1,5 +1,7 @@
 import Klasy.Lotnisko;
 import Klasy.System_lotniczy;
+import org.junit.jupiter.api.Test;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,6 +57,7 @@ public class DodawanieLotniska extends ZarzadzanieLotniskami{
                 if (nazwa.matches("[a-zA-Z]+") && miasto.matches("[a-zA-Z]+")) {
                     system_lotniczy.dodajLotnisko(new Lotnisko(nazwa,miasto));
                     JOptionPane.showMessageDialog(this,"Lotnisko zostalo dodane!");
+                    anuluj();
                 }else {
                     JOptionPane.showMessageDialog(this,"Nieprawidłowy format Nazwa lub Miasto.", "Błąd", JOptionPane.ERROR_MESSAGE);
             }

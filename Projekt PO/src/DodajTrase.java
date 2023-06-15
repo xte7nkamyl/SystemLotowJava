@@ -78,7 +78,7 @@ public class DodajTrase extends ZarzadzanieTrasami{
             int czasLotuInt = Integer.parseInt(czasLotu);
             system_lotniczy.dodajTrasa(new Trasa(odlegloscInt,p,k,czasLotuInt));
             JOptionPane.showMessageDialog(this,"Trasa zostala dodana!");
-
+            wroc();
         }
         catch (NumberFormatException e)
         {

@@ -1,5 +1,4 @@
 package Klasy;
-
 import java.io.Serializable;
 /**
  * klasa w ktorej tworzony jest obiekt lotnisko
@@ -16,22 +15,6 @@ public class Lotnisko implements Serializable {
     public Lotnisko(String nazwa, String miasto) {
         this.nazwa = nazwa;
         this.miasto = miasto;
-    }
-
-    /**
-     * Metoda pobierajaca nazwe.
-     * @return
-     */
-    public String getNazwa() {
-        return nazwa;
-    }
-
-    /**
-     * Metoda pobierajaca miasto.
-     * @return
-     */
-    public String getMiasto() {
-        return miasto;
     }
 
     /**

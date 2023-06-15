@@ -1,7 +1,5 @@
 package Klasy;
-
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 /**
  * klasa w ktorej tworzony jest obiekt rezerwacji
@@ -11,7 +9,6 @@ public class Rezerwacja implements Serializable {
     private Trasa trasa;
     private LocalDateTime dataWylotu;
     private Samolot samolot;
-
     /**
      * Konstruktor z czterema parametrami. Trzy z nich to obiekty klas klient, trasa i samolot (ktore sa w kompozycji z klasa rezerwacja) oraz zmienna czas wylotu typu LocalDateTime.
      * @param klient
@@ -26,7 +23,6 @@ public class Rezerwacja implements Serializable {
         this.samolot = samolot;
         this.trasa = trasa;
     }
-
     /**
      * Metoda pobierajaca klienta.
      * @return
@@ -36,22 +32,6 @@ public class Rezerwacja implements Serializable {
         return klient;
     }
 
-    /**
-     * Metoda pobierajaca trase.
-     * @return
-     */
-    public Trasa getTarsa() {
-        return trasa;
-    }
-
-    /**
-     * Metoda pobierajaca date wylotu.
-     * @return
-     */
-    public LocalDateTime getDataWylotu()
-    {
-        return dataWylotu;
-    }
 
     /**
      * Metoda pobierajaca samolot.
